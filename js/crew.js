@@ -13,7 +13,7 @@ const CrewManifest = {
     const crewFiles = [
       'data/characters/vega.json',
       'data/characters/draven-frost.json',
-      'data/characters/nullvolt.json',
+      'data/characters/d-volt.json',
       'data/characters/echo.json'
     ];
     
