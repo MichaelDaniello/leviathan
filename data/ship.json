@@ -1,0 +1,37 @@
+{
+  "name": "Leviathan",
+  "class": "Ouroboros-class Deep Salvage Vessel",
+  "registry": "LVN-0017",
+  "status": "Operational (Barely)",
+  "description": "A ship that's survived longer than it should have, held together by duct tape, spite, and an AI that knows too much. Originally a corporate salvage hauler, the Leviathan was decommissioned, stolen, decommissioned again, and eventually declared 'not worth the fuel to destroy.' Now she runs freight, salvage, and jobs that don't appear on any official manifest.",
+  "specs": {
+    "length_meters": 127,
+    "crew_capacity": 12,
+    "cargo_tons": 400,
+    "ftl_capable": true,
+    "ftl_type": "Fold Drive (3rd-hand, recalibrated, occasionally screams)",
+    "armament": "Point defense turrets (2), Railgun (1, temperamental)",
+    "shuttle_bays": 1,
+    "escape_pods": 4
+  },
+  "systems": {
+    "ai_core": {
+      "designation": "VEGA",
+      "model": "Helix Dynamics Mk-VII Synthetic Intelligence",
+      "status": "Active",
+      "notes": "Personality matrix shows signs of drift. Recommended for reset. Recommendation ignored."
+    },
+    "life_support": "Functional (85%)",
+    "engines": "Sublight optimal, FTL unpredictable",
+    "sensors": "Military-grade (salvaged, not entirely legal)",
+    "medbay": "Automated, understocked",
+    "armory": "Locked (VEGA authorization required)"
+  },
+  "quirks": [
+    "The fold drive occasionally emits a low hum that sounds like whispered numbers. No one talks about it.",
+    "Deck 3, Section C has a persistent smell no one can identify or eliminate.",
+    "The ship's original name was scratched off the hull. The new name was painted in what might be blood.",
+    "VEGA's sense of humor has been described as 'unsettling' in three separate crew psych evaluations."
+  ],
+  "secrets": []
+}

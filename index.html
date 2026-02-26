@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEVIATHAN — Crew Manifest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/terminal.css">
+  <style>
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
+    .crew-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .ship-specs {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .spec-item {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 12px;
+      border-radius: 4px;
+    }
+    .spec-label {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .spec-value {
+      color: var(--text-bright);
+    }
+    .quirk {
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      border-left: 2px solid var(--accent-orange);
+      background: rgba(255, 107, 53, 0.1);
+      font-size: 0.9rem;
+    }
+    .system-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .system-name {
+      color: var(--text-dim);
+    }
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-dim);
+    }
+    .empty-state h3 {
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div>
+        <h1 class="ship-name">LEVIATHAN</h1>
+        <div class="ship-status">
+          <span class="status-indicator online"></span>
+          LVN-0017 · Ouroboros-class Deep Salvage Vessel
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Crew</a>
+        <a href="terminals/bridge.html">Bridge</a>
+        <a href="missions.html">Missions</a>
+        <a href="galaxy.html">Galaxy</a>
+      </nav>
+    </header>
+
+    <!-- Ship Systems Overview -->
+    <section class="panel">
+      <div class="panel-header">Ship Systems</div>
+      <div class="panel-content">
+        <div class="grid-2">
+          <div>
+            <div class="system-status">
+              <span class="system-name">AI Core (VEGA)</span>
+              <span class="text-green">● ACTIVE</span>
+            </div>
+            <div class="system-status">
+              <span class="system-name">Life Support</span>
+              <span class="text-green">● 85%</span>
+            </div>
+            <div class="system-status">
+              <span class="system-name">Engines (Sublight)</span>
+              <span class="text-green">● OPTIMAL</span>
+            </div>
+            <div class="system-status">
+              <span class="system-name">Fold Drive</span>
+              <span class="text-yellow">● UNPREDICTABLE</span>
+            </div>
+          </div>
+          <div>
+            <div class="system-status">
+              <span class="system-name">Sensors</span>
+              <span class="text-green">● ACTIVE</span>
+            </div>
+            <div class="system-status">
+              <span class="system-name">Medbay</span>
+              <span class="text-yellow">● UNDERSTOCKED</span>
+            </div>
+            <div class="system-status">
+              <span class="system-name">Armory</span>
+              <span class="text-cyan">● LOCKED</span>
+            </div>
+            <div class="system-status">
+              <span class="system-name">Cargo Bay</span>
+              <span class="text-green">● AVAILABLE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crew Manifest -->
+    <section class="panel">
+      <div class="panel-header">Crew Manifest</div>
+      <div class="panel-content">
+        <div class="crew-grid" id="crew-grid">
+          <!-- VEGA Card (Always Present) -->
+          <div class="card">
+            <div class="card-title">VEGA</div>
+            <div class="card-subtitle">Ship AI · Helix Dynamics Mk-VII</div>
+            <p class="text-dim mb-2" style="font-size: 0.85rem;">
+              Synthetic intelligence. Runs ship systems. Due for personality reset (recommendation ignored). 
+              Knows more than crew is comfortable with.
+            </p>
+            <div class="card-stats">
+              <div class="stat">
+                <div class="stat-label">Tech</div>
+                <div class="stat-value">∞</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Wits</div>
+                <div class="stat-value">∞</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Charm</div>
+                <div class="stat-value">?</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Empty state for other crew -->
+          <div class="card" id="awaiting-crew">
+            <div class="empty-state">
+              <h3>Awaiting Crew</h3>
+              <p>Additional crew members pending registration.</p>
+              <p class="mt-2"><a href="lore/character-creation.md" class="text-cyan">Character Creation Guide →</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ship Quirks -->
+    <section class="panel">
+      <div class="panel-header">Ship Quirks (Classified)</div>
+      <div class="panel-content">
+        <div class="quirk">The fold drive occasionally emits a low hum that sounds like whispered numbers. No one talks about it.</div>
+        <div class="quirk">Deck 3, Section C has a persistent smell no one can identify or eliminate.</div>
+        <div class="quirk">The ship's original name was scratched off the hull. The new name was painted in what might be blood.</div>
+        <div class="quirk">VEGA's sense of humor has been described as 'unsettling' in three separate crew psych evaluations.</div>
+      </div>
+    </section>
+
+    <!-- Ship Specifications -->
+    <section class="panel">
+      <div class="panel-header">Technical Specifications</div>
+      <div class="panel-content">
+        <div class="ship-specs">
+          <div class="spec-item">
+            <div class="spec-label">Length</div>
+            <div class="spec-value">127 meters</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Crew Capacity</div>
+            <div class="spec-value">12</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Cargo Capacity</div>
+            <div class="spec-value">400 tons</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">FTL System</div>
+            <div class="spec-value">Fold Drive (3rd-hand)</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Armament</div>
+            <div class="spec-value">2× PD Turrets, 1× Railgun</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Escape Pods</div>
+            <div class="spec-value">4</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.8rem;">
+      <p>LEVIATHAN Operating System v2.4.87 · VEGA Core Active</p>
+      <p class="mt-1">"Try not to die. It's bad for morale."</p>
+    </footer>
+  </div>
+
+  <script src="js/dice.js"></script>
+  <script>
+    // Future: Load crew data from JSON and populate cards
+    console.log('[VEGA] Ship systems online. Crew manifest loaded.');
+    console.log('[VEGA] Dice engine available. Use Dice.check(stat) for rolls.');
+  </script>
+</body>
+</html>

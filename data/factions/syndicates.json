@@ -1,0 +1,25 @@
+{
+  "id": "syndicates",
+  "name": "The Syndicates",
+  "type": "criminal_organization",
+  "alignment": "chaotic",
+  "description": "Organized crime that's often more organized than the organizations that call it criminal. They run the black markets, the smuggling lanes, the protection rackets, and the jobs that pay well specifically because legitimate contractors won't touch them. There's no single Syndicate — it's a loose network of families, crews, and cartels who cooperate when profitable and murder each other when it isn't.",
+  "territory": "Everywhere there's profit, nowhere officially",
+  "assets": [
+    "Black market networks",
+    "Smuggling infrastructure",
+    "Information brokers",
+    "Enforcers and assassins",
+    "Corrupted officials across all factions"
+  ],
+  "goals": [
+    "Profit (always)",
+    "Territorial control of vice markets",
+    "Maintain leverage over legitimate powers",
+    "Eliminate competition"
+  ],
+  "attitude_toward_leviathan": "Potential asset. A salvage ship with flexible morals is useful. Cross them once, though.",
+  "reputation_standing": 0,
+  "key_figures": [],
+  "notes": "The Syndicates pay on time and kill debts with interest. Both kinds."
+}

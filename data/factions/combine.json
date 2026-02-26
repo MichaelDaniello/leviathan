@@ -1,0 +1,25 @@
+{
+  "id": "combine",
+  "name": "The Combine",
+  "type": "megacorporation",
+  "alignment": "neutral",
+  "description": "The corporate mega-state that owns most of core space. Not evil per se — just profit-driven to the point where 'evil' is a rounding error in the quarterly report. They build everything, own everything, and charge interest on everything else.",
+  "territory": "Core systems, major stations, established trade routes",
+  "assets": [
+    "Largest fleet in known space (corporate security, not military — there's a difference in the paperwork)",
+    "FTL manufacturing monopoly",
+    "Banking and credit systems",
+    "Media networks",
+    "Orbital habitats"
+  ],
+  "goals": [
+    "Expand market share (always)",
+    "Maintain monopoly on fold drive technology",
+    "Suppress labor organizing",
+    "Acquire competitors through debt leverage"
+  ],
+  "attitude_toward_leviathan": "Irrelevant. A salvage vessel is beneath notice unless it becomes a liability or an asset.",
+  "reputation_standing": 0,
+  "key_figures": [],
+  "notes": "The Combine doesn't hate you. Hate requires caring. You're a line item."
+}

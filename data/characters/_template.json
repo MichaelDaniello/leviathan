@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "player": "",
+    "created": "",
+    "last_updated": ""
+  },
+  "identity": {
+    "name": "",
+    "callsign": "",
+    "species": "Human",
+    "age": null,
+    "background": "",
+    "role": ""
+  },
+  "stats": {
+    "grit": 5,
+    "reflex": 5,
+    "tech": 5,
+    "wits": 5,
+    "nerve": 5,
+    "charm": 5
+  },
+  "derived": {
+    "hp_max": 10,
+    "hp_current": 10
+  },
+  "edge": {
+    "name": "",
+    "description": "",
+    "uses_per_session": 1,
+    "used_this_session": false
+  },
+  "gear": {
+    "weapons": [],
+    "tools": [],
+    "personal": [],
+    "credits": 0
+  },
+  "personal_item": {
+    "name": "",
+    "description": ""
+  },
+  "the_question": "",
+  "notes": "",
+  "status": {
+    "alive": true,
+    "conditions": [],
+    "location": "Leviathan"
+  },
+  "history": {
+    "sessions_played": 0,
+    "kills": 0,
+    "deaths": 0,
+    "notable_moments": []
+  }
+}

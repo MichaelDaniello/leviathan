@@ -1,0 +1,25 @@
+{
+  "id": "architects",
+  "name": "Church of the Architects",
+  "type": "religious_organization",
+  "alignment": "mysterious",
+  "description": "A religious movement built on the belief that alien precursors — the Architects — visited the galaxy eons ago, seeding technology and hidden messages across countless worlds. They might be right. They're definitely insufferable about it. Part archaeologists, part cultists, part treasure hunters with better branding.",
+  "territory": "Monasteries, dig sites, ancient ruins, anywhere artifacts have been found",
+  "assets": [
+    "Network of archaeo-tech sites",
+    "Ancient artifact collection",
+    "True believers willing to die for the cause",
+    "Researchers and xenoarchaeologists",
+    "More money than a religion should have"
+  ],
+  "goals": [
+    "Recover all Architect artifacts",
+    "Decode the 'Message' (whatever that means)",
+    "Prepare humanity for 'the Return' (ominous)",
+    "Suppress heretical interpretations of the faith"
+  ],
+  "attitude_toward_leviathan": "Unbelievers, but potentially useful. Salvage crews find things. The Church buys things. It's a relationship.",
+  "reputation_standing": 0,
+  "key_figures": [],
+  "notes": "Never take a job for the Church without reading the fine print. Their contracts have metaphysical loopholes."
+}

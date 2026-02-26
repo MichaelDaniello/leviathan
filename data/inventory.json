@@ -1,0 +1,99 @@
+{
+  "ship_stores": {
+    "description": "Communal supplies aboard the Leviathan",
+    "credits": 2500,
+    "fuel": {
+      "current": 75,
+      "max": 100,
+      "unit": "percent"
+    },
+    "food_water": {
+      "days_remaining": 30,
+      "quality": "acceptable"
+    },
+    "medical_supplies": {
+      "status": "low",
+      "items": [
+        "Basic medkits (3)",
+        "Trauma patches (8)",
+        "Stim injectors (4)",
+        "Antibiotics (limited)"
+      ]
+    },
+    "ammunition": {
+      "standard_rounds": 500,
+      "ship_railgun_slugs": 12,
+      "point_defense_charges": "adequate"
+    }
+  },
+  "armory": {
+    "description": "Locked storage — VEGA authorization required",
+    "weapons": [
+      {
+        "name": "Kessler Arms K-7 Sidearm",
+        "type": "pistol",
+        "quantity": 4,
+        "condition": "serviceable"
+      },
+      {
+        "name": "Voss Industries Tactical Carbine",
+        "type": "rifle",
+        "quantity": 2,
+        "condition": "good"
+      },
+      {
+        "name": "Breacher Shotgun (No Brand)",
+        "type": "shotgun",
+        "quantity": 1,
+        "condition": "worn but functional"
+      },
+      {
+        "name": "Shock Baton",
+        "type": "melee",
+        "quantity": 2,
+        "condition": "good"
+      }
+    ],
+    "armor": [
+      {
+        "name": "Light Tactical Vest",
+        "quantity": 3,
+        "condition": "used"
+      },
+      {
+        "name": "EVA Suit (Standard)",
+        "quantity": 4,
+        "condition": "functional"
+      }
+    ]
+  },
+  "cargo_bay": {
+    "description": "Current cargo — what's in the hold",
+    "capacity_tons": 400,
+    "used_tons": 45,
+    "manifest": [
+      {
+        "item": "Salvaged electronics (miscellaneous)",
+        "quantity": "20 tons",
+        "value_estimate": "800 credits",
+        "notes": "From last job. Needs a buyer."
+      },
+      {
+        "item": "Spare parts (ship components)",
+        "quantity": "15 tons",
+        "value_estimate": "N/A",
+        "notes": "For the Leviathan. Not for sale."
+      },
+      {
+        "item": "Crate marked 'DO NOT OPEN'",
+        "quantity": "10 tons",
+        "value_estimate": "Unknown",
+        "notes": "Was here when we got the ship. VEGA claims no knowledge."
+      }
+    ]
+  },
+  "crew_personal": {
+    "description": "Personal gear tracked per character — see character files",
+    "note": "Individual inventory in data/characters/*.json"
+  }
+}

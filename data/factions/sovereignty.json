@@ -1,0 +1,24 @@
+{
+  "id": "sovereignty",
+  "name": "The Sovereignty",
+  "type": "government",
+  "alignment": "lawful",
+  "description": "What remains of Earth's original colonial governments, merged into a single political entity that still believes in concepts like 'law' and 'jurisdiction' and 'due process.' Quaint. They have a navy, courts, and a constitution. They also have corruption, bureaucracy, and a losing war against irrelevance.",
+  "territory": "Earth system, old colonies, diminishing sphere of influence",
+  "assets": [
+    "Military fleet (smaller than Combine's 'security' forces)",
+    "Legal authority (where recognized)",
+    "Diplomatic infrastructure",
+    "Historical legitimacy"
+  ],
+  "goals": [
+    "Maintain relevance in a corporate-dominated galaxy",
+    "Protect citizen rights (on paper)",
+    "Regulate the Margins (good luck)",
+    "Not collapse under the weight of their own bureaucracy"
+  ],
+  "attitude_toward_leviathan": "Unregistered vessel operating outside Sovereignty space. Technically a concern. Practically, not their problem.",
+  "reputation_standing": 0,
+  "key_figures": [],
+  "notes": "The Sovereignty means well. That's the nicest thing anyone says about them."
+}
