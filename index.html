@@ -146,38 +146,7 @@
       <div class="panel-header">Crew Manifest</div>
       <div class="panel-content">
         <div class="crew-grid" id="crew-grid">
-          <!-- VEGA Card (Always Present) -->
-          <div class="card">
-            <div class="card-title">VEGA</div>
-            <div class="card-subtitle">Ship AI · Helix Dynamics Mk-VII</div>
-            <p class="text-dim mb-2" style="font-size: 0.85rem;">
-              Synthetic intelligence. Runs ship systems. Due for personality reset (recommendation ignored). 
-              Knows more than crew is comfortable with.
-            </p>
-            <div class="card-stats">
-              <div class="stat">
-                <div class="stat-label">Tech</div>
-                <div class="stat-value">∞</div>
-              </div>
-              <div class="stat">
-                <div class="stat-label">Wits</div>
-                <div class="stat-value">∞</div>
-              </div>
-              <div class="stat">
-                <div class="stat-label">Charm</div>
-                <div class="stat-value">?</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Empty state for other crew -->
-          <div class="card" id="awaiting-crew">
-            <div class="empty-state">
-              <h3>Awaiting Crew</h3>
-              <p>Additional crew members pending registration.</p>
-              <p class="mt-2"><a href="lore/character-creation.md" class="text-cyan">Character Creation Guide →</a></p>
-            </div>
-          </div>
+          <!-- Crew cards loaded dynamically from JSON -->
         </div>
       </div>
     </section>
@@ -234,9 +203,9 @@
   </div>
 
   <script src="js/dice.js"></script>
+  <script src="js/crew.js"></script>
   <script>
-    // Future: Load crew data from JSON and populate cards
-    console.log('[VEGA] Ship systems online. Crew manifest loaded.');
+    console.log('[VEGA] Ship systems online.');
     console.log('[VEGA] Dice engine available. Use Dice.check(stat) for rolls.');
   </script>
 </body>

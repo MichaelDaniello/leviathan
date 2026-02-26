@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "player": "Mike",
+    "created": "2026-02-26",
+    "last_updated": "2026-02-26"
+  },
+  "identity": {
+    "name": "Draven Frost",
+    "callsign": "Draven Frost",
+    "species": "Human",
+    "age": 38,
+    "background": "Ex-rebel soldier from the losing side, carrying guilt. Reformed military with tech skills. Would do anything to keep the crew safe and fed.",
+    "role": "Pilot"
+  },
+  "stats": {
+    "grit": 7,
+    "reflex": 6,
+    "tech": 5,
+    "wits": 4,
+    "nerve": 5,
+    "charm": 3
+  },
+  "modifiers": {
+    "grit": 1,
+    "reflex": 0,
+    "tech": 0,
+    "wits": -1,
+    "nerve": 0,
+    "charm": -1
+  },
+  "derived": {
+    "hp_max": 12,
+    "hp_current": 12
+  },
+  "edge": {
+    "name": "Guardian Instinct",
+    "description": "Once per session, intercept an attack meant for an ally and take the hit instead.",
+    "uses_per_session": 1,
+    "used_this_session": false
+  },
+  "gear": {
+    "weapons": [
+      "Pulse Rifle (mid-range, burst)",
+      "Tactical Shotgun (close-range, stagger)"
+    ],
+    "tools": [
+      "Flight Rig",
+      "Hardened Armor Vest"
+    ],
+    "personal": [],
+    "credits": 0
+  },
+  "personal_item": {
+    "name": "Rebel Insignia",
+    "description": "A tarnished rebel insignia he keeps in his vest pocket. A reminder of who he used to be."
+  },
+  "the_question": "Can I ever balance the scales for what I've done?",
+  "flaw": "Will protect crew even at cost of collateral damage. If you get in his way, it'll cause problems.",
+  "notes": "Proficient with pulse rifles and shotguns. Can pilot almost anything in the galaxy.",
+  "status": {
+    "alive": true,
+    "conditions": [],
+    "location": "Leviathan"
+  },
+  "history": {
+    "sessions_played": 0,
+    "kills": 0,
+    "deaths": 0,
+    "notable_moments": []
+  }
+}

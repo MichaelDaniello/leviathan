@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "player": "Merkilo",
+    "created": "2026-02-26",
+    "last_updated": "2026-02-26"
+  },
+  "identity": {
+    "name": "Vesper Cade",
+    "callsign": "Nullvolt",
+    "species": "Human (military-grade augmentation)",
+    "age": 31,
+    "background": "Government hacker turned conscripted cyber-warfare operative. Served sentence through war, now a free agent with a body full of military tech and a head full of ghosts. Hides augmentations under a military long coat. Whispers to himself while concentrating.",
+    "role": "Tech Specialist"
+  },
+  "stats": {
+    "grit": 3,
+    "reflex": 6,
+    "tech": 9,
+    "wits": 5,
+    "nerve": 5,
+    "charm": 2
+  },
+  "modifiers": {
+    "grit": -1,
+    "reflex": 0,
+    "tech": 2,
+    "wits": 0,
+    "nerve": 0,
+    "charm": -2
+  },
+  "derived": {
+    "hp_max": 8,
+    "hp_current": 8
+  },
+  "edge": {
+    "name": "System Hijack",
+    "description": "Once per session, turn an enemy's tech (weapon, drone, implant, ship system) against them for one action.",
+    "uses_per_session": 1,
+    "used_this_session": false
+  },
+  "gear": {
+    "weapons": [
+      "Laser Multitool Knife (close combat / utility breach)",
+      "Sidearm Pistol"
+    ],
+    "tools": [
+      "Integrated Warfare Suite (subdermal; hacking, signal intercept, EMP pulse)"
+    ],
+    "personal": [],
+    "credits": 0
+  },
+  "personal_item": {
+    "name": "Cracked Data Chip",
+    "description": "Contains the last transmission from someone who didn't make it out. He never plays it anymore."
+  },
+  "the_question": "Was I the weapon, or was I just the ammunition?",
+  "flaw": "Emotional dissociation under pressure. Relationships feel like variables. The horrors of war have both hardened him and left him with crippling emotional trauma.",
+  "appearance": "Lean and muscular but not big. Short hair, long on top, with a streak of gray. Without the coat, his body looks maintained like a machine—replaced parts, serial numbers, dull metal sheen.",
+  "notes": "Main combat style: using technology itself as a weapon (tech-caster). Whispers to himself under focus.",
+  "status": {
+    "alive": true,
+    "conditions": [],
+    "location": "Leviathan"
+  },
+  "history": {
+    "sessions_played": 0,
+    "kills": 0,
+    "deaths": 0,
+    "notable_moments": []
+  }
+}

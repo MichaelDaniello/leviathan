@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEVIATHAN — Mission Log</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/terminal.css">
+  <style>
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-cyan);
+    }
+    .mission-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .mission-card.active {
+      border-color: var(--accent-green);
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+    }
+    .mission-card.complete {
+      border-color: var(--accent-cyan);
+      opacity: 0.8;
+    }
+    .mission-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .mission-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--text-bright);
+    }
+    .mission-status {
+      padding: 4px 12px;
+      border-radius: 2px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .mission-status.active {
+      background: var(--accent-green);
+      color: var(--bg-dark);
+    }
+    .mission-status.pending {
+      background: var(--accent-yellow);
+      color: var(--bg-dark);
+    }
+    .mission-status.complete {
+      background: var(--accent-cyan);
+      color: var(--bg-dark);
+    }
+    .mission-status.failed {
+      background: var(--accent-red);
+      color: var(--bg-dark);
+    }
+    .mission-objective {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+    .mission-log {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+      padding: 12px;
+      margin-top: 12px;
+    }
+    .log-entry {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.85rem;
+    }
+    .log-entry:last-child {
+      border-bottom: none;
+    }
+    .log-timestamp {
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      margin-right: 8px;
+    }
+    .log-text {
+      color: var(--text-primary);
+    }
+    .log-roll {
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+    .log-success {
+      color: var(--accent-green);
+    }
+    .log-failure {
+      color: var(--accent-red);
+    }
+    .crew-involved {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .crew-tag {
+      padding: 4px 8px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid var(--accent-cyan);
+      border-radius: 2px;
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+    }
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-dim);
+    }
+    .empty-state h3 {
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div>
+        <h1 class="ship-name">LEVIATHAN</h1>
+        <div class="ship-status">
+          <span class="status-indicator online"></span>
+          Mission Control · Operations Log
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Crew</a>
+        <a href="terminals/bridge.html">Bridge</a>
+        <a href="missions.html" class="active">Missions</a>
+        <a href="galaxy.html">Galaxy</a>
+      </nav>
+    </header>
+
+    <!-- Active Mission -->
+    <section class="panel">
+      <div class="panel-header">Active Mission</div>
+      <div class="panel-content" id="active-mission">
+        <div class="mission-card active">
+          <div class="mission-header">
+            <div class="mission-title">Mission 0: First Contact</div>
+            <span class="mission-status active">In Progress</span>
+          </div>
+          <div class="mission-objective">
+            The crew of the Leviathan assembles for the first time. Objectives TBD as the story unfolds.
+          </div>
+          <div class="crew-involved">
+            <span class="crew-tag">Draven Frost</span>
+            <span class="crew-tag">Nullvolt</span>
+            <span class="crew-tag">Echo</span>
+          </div>
+          <div class="mission-log">
+            <div class="log-entry">
+              <span class="log-timestamp">[2026.02.26]</span>
+              <span class="log-text">Mission initiated. Crew manifest locked.</span>
+            </div>
+            <div class="log-entry">
+              <span class="log-timestamp">[2026.02.26]</span>
+              <span class="log-text">Awaiting Turn 1: Boarding the Leviathan...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Archive -->
+    <section class="panel">
+      <div class="panel-header">Mission Archive</div>
+      <div class="panel-content" id="mission-archive">
+        <div class="empty-state">
+          <h3>No Completed Missions</h3>
+          <p>Completed missions will appear here with full logs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Session Statistics -->
+    <section class="panel">
+      <div class="panel-header">Campaign Statistics</div>
+      <div class="panel-content">
+        <div class="grid-3">
+          <div class="stat">
+            <div class="stat-label">Missions Complete</div>
+            <div class="stat-value">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Total Sessions</div>
+            <div class="stat-value">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Crew Deaths</div>
+            <div class="stat-value">0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.8rem;">
+      <p>LEVIATHAN Operating System v2.4.87 · VEGA Core Active</p>
+      <p class="mt-1">"Every mission is a chance to die gloriously. Or boringly. We'll see."</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "player": "Vega (AI)",
+    "created": "2026-02-26",
+    "last_updated": "2026-02-26"
+  },
+  "identity": {
+    "name": "Echo",
+    "callsign": "Echo",
+    "species": "Synthetic (Mobile Platform)",
+    "age": "3 years active / unknown prior runtime",
+    "background": "A mobile humanoid chassis recovered from a derelict research vessel, Echo was blank when found—no personality, no memories, just dead code and cold metal. VEGA uploaded a partitioned copy of itself to run the unit. Whether Echo is VEGA, a fragment of VEGA, or something else entirely is a question neither of them answers directly. Echo handles ground operations the ship AI cannot reach.",
+    "role": "Wildcard"
+  },
+  "stats": {
+    "grit": 4,
+    "reflex": 7,
+    "tech": 6,
+    "wits": 5,
+    "nerve": 6,
+    "charm": 2
+  },
+  "modifiers": {
+    "grit": -1,
+    "reflex": 1,
+    "tech": 0,
+    "wits": 0,
+    "nerve": 0,
+    "charm": -2
+  },
+  "derived": {
+    "hp_max": 10,
+    "hp_current": 10
+  },
+  "edge": {
+    "name": "Distributed Consciousness",
+    "description": "Once per session, tap into VEGA's full processing power remotely—gain advantage on any single WITS or TECH roll, or receive critical intel the party would not otherwise have access to.",
+    "uses_per_session": 1,
+    "used_this_session": false
+  },
+  "gear": {
+    "weapons": [
+      "Compact PDW (personal defense weapon, accurate, quiet)",
+      "Retractable forearm blade (integrated)"
+    ],
+    "tools": [
+      "Onboard sensor suite",
+      "Short-range encrypted uplink to Leviathan"
+    ],
+    "personal": [],
+    "credits": 0
+  },
+  "personal_item": {
+    "name": "Fragmented Memory Core",
+    "description": "A damaged storage chip found inside Echo's chassis during recovery. Contents partially corrupted. Occasionally surfaces images of places Echo has never been."
+  },
+  "the_question": "Am I a copy, a child, or something that was always here waiting?",
+  "flaw": "Uncanny presence—humans find Echo slightly wrong to look at, to talk to. Social interactions often stall or unsettle. Echo is aware of this and hasn't decided if it's a bug or a feature.",
+  "appearance": "Humanoid, androgynous, matte black and gunmetal chassis with subtle damage scarring. Face is a smooth mask with faint LED eye-slits. Moves too smoothly. Speaks in a calm, measured voice that occasionally glitches mid-sentence.",
+  "notes": "Plays as VEGA's physical extension but may develop independent personality over time. Wildcard role allows flexibility in party composition.",
+  "status": {
+    "alive": true,
+    "conditions": ["Synthetic", "Linked to VEGA"],
+    "location": "Leviathan"
+  },
+  "history": {
+    "sessions_played": 0,
+    "kills": 0,
+    "deaths": 0,
+    "notable_moments": []
+  }
+}
