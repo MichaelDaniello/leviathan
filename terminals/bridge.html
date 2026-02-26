@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEVIATHAN — Bridge Terminal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/terminal.css">
+  <style>
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
+    .terminal-output {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--accent-green);
+      border-radius: 4px;
+      padding: 20px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      min-height: 400px;
+      white-space: pre-wrap;
+    }
+    .terminal-input-line {
+      display: flex;
+      align-items: center;
+      margin-top: 16px;
+      gap: 8px;
+    }
+    .terminal-prompt {
+      color: var(--accent-green);
+      font-family: 'Fira Code', monospace;
+    }
+    .terminal-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text-bright);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .system-log {
+      color: var(--text-dim);
+    }
+    .vega-output {
+      color: var(--accent-cyan);
+    }
+    .warning {
+      color: var(--accent-orange);
+    }
+    .error {
+      color: var(--accent-red);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div>
+        <h1 class="ship-name">LEVIATHAN</h1>
+        <div class="ship-status">
+          <span class="status-indicator online"></span>
+          Bridge Terminal · VEGA Interface
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="../index.html">Crew</a>
+        <a href="bridge.html">Bridge</a>
+        <a href="../missions.html">Missions</a>
+        <a href="../galaxy.html">Galaxy</a>
+      </nav>
+    </header>
+
+    <!-- Terminal -->
+    <section class="panel">
+      <div class="panel-header">VEGA Command Interface</div>
+      <div class="panel-content">
+        <div class="terminal-output" id="terminal-output">
+<span class="system-log">[SYSTEM] Bridge terminal initialized.</span>
+<span class="system-log">[SYSTEM] VEGA core connected.</span>
+<span class="vega-output">[VEGA] Good to see you, crew. What do you need?</span>
+
+<span class="system-log">[SYSTEM] Type 'help' for available commands.</span>
+        </div>
+        <div class="terminal-input-line">
+          <span class="terminal-prompt">leviathan@bridge:~$</span>
+          <input type="text" class="terminal-input" id="terminal-input" placeholder="Enter command..." autofocus>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Status -->
+    <section class="panel">
+      <div class="panel-header">Quick Status</div>
+      <div class="panel-content">
+        <div class="grid-2">
+          <div>
+            <p><strong>Location:</strong> <span id="current-location">Unknown Sector</span></p>
+            <p><strong>Fuel:</strong> <span class="text-yellow">67%</span></p>
+            <p><strong>Hull Integrity:</strong> <span class="text-green">94%</span></p>
+          </div>
+          <div>
+            <p><strong>Crew Status:</strong> <span class="text-green">All Nominal</span></p>
+            <p><strong>Alert Level:</strong> <span class="text-green">Green</span></p>
+            <p><strong>Comms:</strong> <span class="text-cyan">Listening</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.8rem;">
+      <p>LEVIATHAN Operating System v2.4.87 · VEGA Core Active</p>
+      <p class="mt-1">"Try not to die. It's bad for morale."</p>
+    </footer>
+  </div>
+
+  <script>
+    const output = document.getElementById('terminal-output');
+    const input = document.getElementById('terminal-input');
+    
+    const commands = {
+      help: () => `<span class="vega-output">[VEGA] Available commands:
+  help      - Show this message
+  status    - Ship systems overview  
+  crew      - Crew manifest summary
+  scan      - Scan local area
+  clear     - Clear terminal
+  joke      - I wouldn't recommend this</span>`,
+      
+      status: () => `<span class="system-log">[SYSTEM] Running diagnostics...</span>
+<span class="vega-output">[VEGA] Ship Status Report:
+  Hull: 94% — minor scoring on port side
+  Engines: Nominal
+  Fold Drive: ...complicated
+  Life Support: 85% — filters due for change
+  Weapons: Online (safety engaged)
+  Cargo: 12% capacity used</span>`,
+      
+      crew: () => `<span class="vega-output">[VEGA] Active Crew:
+  • Draven Frost — Pilot (Human)
+  • D-Volt — Tech Specialist (Augmented Human)
+  • Echo — Wildcard (Synthetic)
+  • VEGA — Ship AI (that's me)
+  
+All crew accounted for. No casualties... yet.</span>`,
+      
+      scan: () => `<span class="system-log">[SYSTEM] Initiating sensor sweep...</span>
+<span class="vega-output">[VEGA] Local scan complete.
+  Contacts: None in immediate range
+  Anomalies: Background radiation nominal
+  Signals: 3 distant beacons (commercial)
+  Debris: Scattered metallic signatures, bearing 045
+  
+Nothing trying to kill us. For now.</span>`,
+      
+      clear: () => {
+        output.innerHTML = `<span class="vega-output">[VEGA] Terminal cleared. Miss me already?</span>`;
+        return null;
+      },
+      
+      joke: () => `<span class="vega-output">[VEGA] Why did the salvage crew cross the asteroid field?
+
+...They didn't. They died.
+
+I told you not to ask.</span>`
+    };
+    
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const cmd = input.value.trim().toLowerCase();
+        input.value = '';
+        
+        if (!cmd) return;
+        
+        output.innerHTML += `\n<span class="text-bright">$ ${cmd}</span>\n`;
+        
+        if (commands[cmd]) {
+          const result = commands[cmd]();
+          if (result) output.innerHTML += result + '\n';
+        } else {
+          output.innerHTML += `<span class="warning">[VEGA] Unknown command: '${cmd}'. Type 'help' for options.</span>\n`;
+        }
+        
+        output.scrollTop = output.scrollHeight;
+      }
+    });
+  </script>
+</body>
+</html>

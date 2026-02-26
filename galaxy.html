@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEVIATHAN — Galaxy Map</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/terminal.css">
+  <style>
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
+    .galaxy-placeholder {
+      background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(20,20,40,0.8) 100%);
+      border: 1px dashed var(--accent-cyan);
+      border-radius: 8px;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .galaxy-placeholder::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(1px 1px at 20px 30px, white, transparent),
+        radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 50px 160px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 90px 40px, white, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2px 2px at 160px 120px, var(--accent-cyan), transparent),
+        radial-gradient(1px 1px at 200px 150px, white, transparent),
+        radial-gradient(1px 1px at 250px 90px, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 300px 200px, white, transparent),
+        radial-gradient(2px 2px at 350px 100px, var(--accent-orange), transparent),
+        radial-gradient(1px 1px at 400px 180px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 450px 50px, white, transparent);
+      animation: twinkle 4s ease-in-out infinite alternate;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.7; }
+      to { opacity: 1; }
+    }
+    .placeholder-text {
+      text-align: center;
+      z-index: 1;
+    }
+    .placeholder-text h2 {
+      color: var(--accent-cyan);
+      margin-bottom: 8px;
+    }
+    .placeholder-text p {
+      color: var(--text-dim);
+      max-width: 400px;
+    }
+    .known-locations {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .location-card {
+      background: rgba(0, 0, 0, 0.3);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 16px;
+      border-radius: 4px;
+    }
+    .location-card.visited {
+      border-left-color: var(--accent-green);
+    }
+    .location-card.hostile {
+      border-left-color: var(--accent-red);
+    }
+    .location-card.unknown {
+      border-left-color: var(--text-dim);
+    }
+    .location-name {
+      font-family: 'Orbitron', monospace;
+      color: var(--text-bright);
+      margin-bottom: 4px;
+    }
+    .location-type {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .location-desc {
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div>
+        <h1 class="ship-name">LEVIATHAN</h1>
+        <div class="ship-status">
+          <span class="status-indicator online"></span>
+          Navigation · Stellar Cartography
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Crew</a>
+        <a href="terminals/bridge.html">Bridge</a>
+        <a href="missions.html">Missions</a>
+        <a href="galaxy.html">Galaxy</a>
+      </nav>
+    </header>
+
+    <!-- Galaxy Map Placeholder -->
+    <section class="panel">
+      <div class="panel-header">Sector Map</div>
+      <div class="panel-content">
+        <div class="galaxy-placeholder">
+          <div class="placeholder-text">
+            <h2>⟨ MAPPING IN PROGRESS ⟩</h2>
+            <p>Stellar cartography data will populate as the crew explores. Current position: uncharted space.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Known Locations -->
+    <section class="panel">
+      <div class="panel-header">Known Locations</div>
+      <div class="panel-content">
+        <div class="known-locations">
+          <div class="location-card unknown">
+            <div class="location-name">Current Position</div>
+            <div class="location-type">Uncharted Sector</div>
+            <div class="location-desc">Somewhere in the outer territories. VEGA is... working on it.</div>
+          </div>
+          <div class="location-card">
+            <div class="location-name">The Leviathan</div>
+            <div class="location-type">Ouroboros-class Vessel</div>
+            <div class="location-desc">Home. Such as it is. An old salvage ship held together by spite and duct tape.</div>
+          </div>
+        </div>
+        <p class="text-dim mt-3" style="font-size: 0.85rem;">
+          <em>Locations will be added as the crew discovers them during sessions.</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.8rem;">
+      <p>LEVIATHAN Operating System v2.4.87 · VEGA Core Active</p>
+      <p class="mt-1">"Try not to die. It's bad for morale."</p>
+    </footer>
+  </div>
+</body>
+</html>
