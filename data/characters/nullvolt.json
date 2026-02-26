@@ -5,28 +5,28 @@
     "last_updated": "2026-02-26"
   },
   "identity": {
-    "name": "Vesper Cade",
+    "name": "Dimitri Markov",
     "callsign": "Nullvolt",
     "species": "Human (military-grade augmentation)",
-    "age": 31,
+    "age": 37,
     "background": "Government hacker turned conscripted cyber-warfare operative. Served sentence through war, now a free agent with a body full of military tech and a head full of ghosts. Hides augmentations under a military long coat. Whispers to himself while concentrating.",
     "role": "Tech Specialist"
   },
   "stats": {
     "grit": 3,
-    "reflex": 6,
+    "reflex": 5,
     "tech": 9,
     "wits": 5,
-    "nerve": 5,
-    "charm": 2
+    "nerve": 4,
+    "charm": 4
   },
   "modifiers": {
     "grit": -1,
     "reflex": 0,
     "tech": 2,
     "wits": 0,
-    "nerve": 0,
-    "charm": -2
+    "nerve": -1,
+    "charm": -1
   },
   "derived": {
     "hp_max": 8,
