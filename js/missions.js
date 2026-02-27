@@ -16,6 +16,36 @@
     return String(value);
   };
 
+  const renderAlertsFallback = (worldState) => {
+    const alertsContainer = document.getElementById('active-alerts-content');
+    if (!alertsContainer) return;
+
+    const alerts = Array.isArray(worldState?.active_alerts) ? worldState.active_alerts : [];
+    alertsContainer.innerHTML = '';
+
+    if (alerts.length === 0) {
+      alertsContainer.innerHTML = '<p class="alerts-empty">No active alerts.</p>';
+      return;
+    }
+
+    alertsContainer.innerHTML = `
+      <div class="alerts-list">
+        ${alerts.map((alert) => {
+          const severity = safeText(alert?.severity, 'low').toLowerCase();
+          return `
+            <article class="alert-item severity-${severity}">
+              <div class="alert-header">
+                <span class="alert-severity severity-${severity}">${severity}</span>
+                <h3 class="alert-title">${safeText(alert?.title, 'Unnamed alert')}</h3>
+              </div>
+              <p class="alert-detail">${safeText(alert?.detail, 'No detail available.')}</p>
+            </article>
+          `;
+        }).join('')}
+      </div>
+    `;
+  };
+
   const renderArcHeader = (arc) => {
     const header = document.getElementById('arc-header');
     if (!header || !arc) return;
@@ -131,7 +161,20 @@
   };
 
   const init = async () => {
-    const worldState = await loadJson('data/world_state.json');
+    const worldState = window.LeviathanWorldState?.fetchWorldState
+      ? await window.LeviathanWorldState.fetchWorldState('data/world_state.json')
+      : await loadJson('data/world_state.json');
+
+    if (window.LeviathanWorldState?.renderActiveAlerts) {
+      window.LeviathanWorldState.renderActiveAlerts(
+        document.getElementById('active-alerts-content'),
+        worldState,
+        { emptyMessage: 'No active alerts.' }
+      );
+    } else {
+      renderAlertsFallback(worldState);
+    }
+
     const arcId = safeText(worldState?.current_arc, DEFAULT_ARC_ID);
     const arc = await loadJson(`data/arcs/${arcId}.json`) || await loadJson(`data/arcs/${DEFAULT_ARC_ID}.json`);
 

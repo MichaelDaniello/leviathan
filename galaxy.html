@@ -406,6 +406,14 @@
       </nav>
     </header>
 
+    <!-- Active Alerts -->
+    <section class="panel" id="alerts-panel">
+      <div class="panel-header">VEGA ALERTS</div>
+      <div class="panel-content" id="active-alerts-content">
+        <p class="alerts-empty">No active alerts.</p>
+      </div>
+    </section>
+
     <!-- Interactive Galaxy Map -->
     <section class="panel map-panel">
       <div class="panel-header">Sector Map — Free Margins</div>
@@ -641,10 +649,12 @@
       <p class="mt-1">"The map is not the territory. The territory is trying to kill you."</p>
     </footer>
   </div>
+  <script src="js/world_state.js"></script>
   <script>
     (function () {
       const map = document.getElementById('galaxy-map');
       const route = document.getElementById('travel-route');
+      const alertsContainer = document.getElementById('active-alerts-content');
       if (!map || !route) return;
 
       const defaultState = {
@@ -659,6 +669,20 @@
       };
 
       let routeEndpoints = { ...defaultState.map.travel_route };
+
+      const loadWorldState = async () => {
+        if (window.LeviathanWorldState?.fetchWorldState) {
+          return window.LeviathanWorldState.fetchWorldState('data/world_state.json');
+        }
+
+        try {
+          const response = await fetch('data/world_state.json');
+          if (!response.ok) return null;
+          return await response.json();
+        } catch (err) {
+          return null;
+        }
+      };
 
       const markerCenter = (locationEl, mapRect) => {
         const marker = locationEl.querySelector('.location-marker');
@@ -712,16 +736,19 @@
       };
 
       const init = async () => {
-        try {
-          const response = await fetch('data/world_state.json');
-          if (response.ok) {
-            const state = await response.json();
-            applyMarkerPositions(state);
-          } else {
-            applyMarkerPositions(defaultState);
-          }
-        } catch (err) {
+        const state = await loadWorldState();
+        if (state) {
+          applyMarkerPositions(state);
+        } else {
           applyMarkerPositions(defaultState);
+        }
+
+        if (window.LeviathanWorldState?.renderActiveAlerts) {
+          window.LeviathanWorldState.renderActiveAlerts(
+            alertsContainer,
+            state,
+            { emptyMessage: 'No active alerts.' }
+          );
         }
 
         updateTravelRoute();
