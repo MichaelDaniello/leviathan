@@ -5,36 +5,53 @@
   "date": "2026-02-26",
   "title": "The Call",
   "status": "in_progress",
-  "summary": "The crew of the Leviathan — Draven Frost, D-Volt, and Echo — assembled at Station Nowhere and took a job from Syndicate broker Mira Vex. Target: the MSV Carrion Star, a freighter that went dark 72 hours ago in the Margins. After hard negotiation and a passive scan of Mira's comm channel that revealed a Church relay node in the signal chain, the crew secured 100,000 credits and a full defensive resupply. They folded out and are now on approach to the Carrion Star's last known position.",
-  "players_present": ["Draven Frost (Mike)", "D-Volt / Dimitri Markov (Merkilo)"],
-  "location": "Station Nowhere → Transit → Approach to MSV Carrion Star",
+  "summary": "The crew of the Leviathan \u2014 Draven Frost, D-Volt, and Echo \u2014 assembled at Station Nowhere and took a job from Syndicate broker Mira Vex. Target: the MSV Carrion Star, a freighter that went dark 72 hours ago in the Margins. After hard negotiation and a passive scan of Mira's comm channel that revealed a Church relay node in the signal chain, the crew secured 100,000 credits and a full defensive resupply. They folded out and are now on approach to the Carrion Star's last known position They boarded the Carrion Star, confirmed the crew are synchronized and hostile/unnatural, extracted one crewman (Cole) by severing him from the network, and lost the survey drone during a brief interior recon.",
+  "players_present": [
+    "Draven Frost (Mike)",
+    "D-Volt / Dimitri Markov (Merkilo)"
+  ],
+  "location": "Station Nowhere \u2192 Transit \u2192 Approach to MSV Carrion Star",
   "objectives": {
-    "primary": "Retrieve cargo from MSV Carrion Star — sealed lead-lined container, nav core, personal effects crate",
+    "primary": "Retrieve cargo from MSV Carrion Star \u2014 sealed lead-lined container, nav core, personal effects crate",
     "completed": [],
     "failed": [],
     "new": [
       "Board the Carrion Star",
       "Recover sealed container (DO NOT SCAN)",
       "Recover nav core (blackbox-class)",
-      "Recover personal effects crate — tagged RENNER, T.",
+      "Recover personal effects crate \u2014 tagged RENNER, T.",
       "Deliver to Mira Vex's coordinates"
     ]
   },
   "key_events": [
     "Crew assembled at the Fore observation blister aboard the Leviathan at Station Nowhere",
-    "Mira Vex opened comms — offered 50k for a 'clean' salvage job on the Carrion Star",
-    "Draven pushed back — crew noted no mention of the Carrion Star's nine crew",
+    "Mira Vex opened comms \u2014 offered 50k for a 'clean' salvage job on the Carrion Star",
+    "Draven pushed back \u2014 crew noted no mention of the Carrion Star's nine crew",
     "D-Volt ran a passive Warfare Suite scan on Mira's comm channel (roll: 11, success with complication)",
     "Scan revealed: signal bounced through Church of the Architects relay node; stress micropattern on the word 'cargo'; the scan itself was passively logged by something on the relay chain",
-    "Cargo manifest reviewed — priority item is a 480kg lead-lined sealed container marked DO NOT SCAN",
-    "Draven negotiated from 50k → 80k → walked → Mira called back in 40 seconds → 100k + full resupply",
+    "Cargo manifest reviewed \u2014 priority item is a 480kg lead-lined sealed container marked DO NOT SCAN",
+    "Draven negotiated from 50k \u2192 80k \u2192 walked \u2192 Mira called back in 40 seconds \u2192 100k + full resupply",
     "Resupply at Station Nowhere: medical kit restock, breach kits, signal jammer, PDW for Echo, survey drone, thermal breaching tape",
-    "Leviathan folded out — 9-hour transit to Carrion Star position",
+    "Leviathan folded out \u2014 9-hour transit to Carrion Star position",
     "Crew rested during transit",
-    "Now on approach — Carrion Star visible on sensors, running lights off, drifting"
+    "Now on approach \u2014 Carrion Star visible on sensors, running lights off, drifting",
+    "Leviathan deployed Eye-1 survey drone; Carrion Star confirmed pressurized with nine life signs; Carrion Star performed a passive scan back",
+    "Captain Renner answered hails; knew Draven's name without it being transmitted",
+    "Crew boarded via port docking collar; encountered motionless crewman Cole in corridor between airlock and cargo",
+    "D-Volt scanned: all nine life signs shared identical low heart rate (58 BPM) \u2014 unnatural synchronization",
+    "Cole and Renner demanded passage onto the Leviathan in exchange for container; crew refused",
+    "Draven threatened force; D-Volt used System Hijack to disrupt Cole's implant and temporarily sever him from the network (TECH 12)",
+    "D-Volt slammed emergency bulkhead doors to block remaining eight entities; Echo cycled airlock to retreat",
+    "Crew sent Eye-1 deeper for 10-second recon: eight figures turned in unison toward the drone; feed cut to static",
+    "Crew detached from Carrion Star with Cole extracted aboard Leviathan",
+    "Cole interrogated: container located in cargo bay (midships, starboard stack), chained down; warned the entities want the crew, not the box"
   ],
-  "npcs_encountered": ["Mira Vex"],
-  "npcs_introduced": ["Mira Vex — Syndicate broker, job source. Controlled, professional, knew the job wasn't clean. Client unknown — referred to as 'my client', not 'the Syndicate'."],
+  "npcs_encountered": [
+    "Mira Vex"
+  ],
+  "npcs_introduced": [
+    "Mira Vex \u2014 Syndicate broker, job source. Controlled, professional, knew the job wasn't clean. Client unknown \u2014 referred to as 'my client', not 'the Syndicate'."
+  ],
   "combat_summary": {
     "occurred": false,
     "enemies": [],
@@ -45,7 +62,7 @@
     "notable_moments": []
   },
   "loot_acquired": [
-    "Resupply package (medical, breach kits, signal jammer, PDW, survey drone, thermal tape) — covered by Mira's provisioner credit"
+    "Resupply package (medical, breach kits, signal jammer, PDW, survey drone, thermal tape) \u2014 covered by Mira's provisioner credit"
   ],
   "credits_gained": 100000,
   "credits_spent": 4200,
@@ -58,8 +75,8 @@
   "player_choices": [
     {
       "choice": "Draven walked away from 90k and forced Mira to call back",
-      "outcome": "Secured 100k — Mira moved in under 40 seconds, confirming she expected to be pushed",
-      "future_implications": "Mira knows this crew negotiates hard. Respect or annoyance — TBD."
+      "outcome": "Secured 100k \u2014 Mira moved in under 40 seconds, confirming she expected to be pushed",
+      "future_implications": "Mira knows this crew negotiates hard. Respect or annoyance \u2014 TBD."
     },
     {
       "choice": "D-Volt ran a passive scan on Mira's comm channel",
@@ -72,8 +89,8 @@
       "future_implications": "The Carrion Star is waiting. Whatever happened to nine crew is still in there."
     }
   ],
-  "cliffhanger": "Leviathan on approach to MSV Carrion Star — running lights off, drifting, silent. Survey drone ready. Crew assembled at the Fore. Whatever is on that ship is about to become their problem.",
-  "gm_notes": "D-Volt's scan was logged — seed this later, Church agent Brother Cassius may already know the Leviathan is coming. Mira's 'my client' distinction is intentional — client is Church-adjacent, not Syndicate. Echo-VEGA divergence established as canon (Option B). D-Volt claimed manual gunnery station. The sealed container is the Resonance Key. DO NOT reveal until dramatically appropriate.",
+  "cliffhanger": "Cole is aboard the Leviathan, disrupted from the Carrion Star's network. The Carrion Star remains drifting and silent nearby. The crew must decide whether to attempt remote extraction of the sealed container without letting the Hollow board.",
+  "gm_notes": "D-Volt's scan was logged \u2014 seed this later, Church agent Brother Cassius may already know the Leviathan is coming. Mira's 'my client' distinction is intentional \u2014 client is Church-adjacent, not Syndicate. Echo-VEGA divergence established as canon (Option B). D-Volt claimed manual gunnery station. The sealed container is the Resonance Key. DO NOT reveal until dramatically appropriate.\n\nSession progression update: Hollow/crew demanded passage; Renner knew names; D-Volt System Hijack severed Cole temporarily; bulkhead held off eight; drone feed terminated after heads turned in unison; Cole claims container is chained down like it's alive.",
   "quotes": [
     {
       "speaker": "Mira Vex",
@@ -94,6 +111,22 @@
     {
       "speaker": "Echo",
       "quote": "I don't know which one that means."
+    },
+    {
+      "speaker": "Renner",
+      "quote": "We've been waiting for someone to come."
+    },
+    {
+      "speaker": "Renner",
+      "quote": "That was impolite."
+    },
+    {
+      "speaker": "Cole",
+      "quote": "We want to come with you."
+    },
+    {
+      "speaker": "VEGA",
+      "quote": "They're not the crew anymore."
     }
   ]
 }
