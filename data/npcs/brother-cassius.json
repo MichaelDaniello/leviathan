@@ -1,0 +1,43 @@
+{
+  "id": "brother-cassius",
+  "name": "Brother Cassius",
+  "type": "antagonist",
+  "faction": "architects",
+  "role": "Field Agent",
+  "status": "active",
+  "description": "A field operative for the Church of the Architects. Brother Cassius retrieves artifacts, silences problems, and maintains the faith — not necessarily in that order. He's unfailingly polite, deeply devout, and capable of extreme violence delivered with genuine regret.",
+  "appearance": "Tall, lean, late 40s. Close-cropped gray hair. Wears simple dark clothing that could pass as monastic robes or tactical gear depending on the light. A small silver pendant in the shape of a spiral — the Architect sigil. Eyes that have seen things they can't unsee and made peace with it.",
+  "personality": {
+    "traits": ["Devout", "Patient", "Ruthless", "Genuinely Kind"],
+    "quirks": ["Prays before and after violence", "Speaks softly regardless of circumstances", "Collects small stones from every world he visits"]
+  },
+  "stats": {
+    "grit": 7,
+    "reflex": 8,
+    "tech": 5,
+    "wits": 7,
+    "nerve": 9,
+    "charm": 6
+  },
+  "combat_notes": "Highly trained. Prefers to disable rather than kill, but will kill without hesitation if the mission requires. Carries a collapsible baton and a silenced pistol.",
+  "location": "Mobile — goes where the Church sends him",
+  "relationships": {
+    "leviathan_crew": {
+      "disposition": "unknown",
+      "notes": "Has not yet encountered the crew. Will, based on Resonance Key situation."
+    }
+  },
+  "secrets": [
+    "Was Sovereignty special forces before his 'conversion.' The Church recruited him, not saved him.",
+    "Has personally handled three other Resonance Key incidents. He's the Church's cleanup specialist.",
+    "Believes the Architects will return. Truly believes. This makes him more dangerous, not less."
+  ],
+  "quotes": [
+    "I apologize for the inconvenience. Truly. But the artifact cannot remain in unsanctified hands.",
+    "Faith isn't about comfort. It's about readiness.",
+    "The Architects left us a message. My job is to ensure we're ready to receive it."
+  ],
+  "first_appearance": null,
+  "last_seen": null,
+  "notes": "Potential Arc 1 antagonist or ally depending on crew choices. Returns in later arcs."
+}

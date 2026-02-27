@@ -1,0 +1,63 @@
+{
+  "id": "station-nowhere",
+  "name": "Station Nowhere",
+  "type": "station",
+  "region": "free_margins",
+  "status": "active",
+  "description": "A sprawling independent station built from the carcasses of three decommissioned colony ships and roughly 200 years of unplanned expansion. Station Nowhere sits at the intersection of five smuggling routes and zero official jurisdictions. It's not the armpit of the galaxy — it's the taint.",
+  "details": {
+    "population": "~40,000 (official), ~60,000 (actual)",
+    "governance": "Council of Captains (theoretical), whoever has the most guns (practical)",
+    "economy": "Black market hub, salvage trading, mercenary recruitment, information brokerage",
+    "atmosphere": "Breathable (usually). Recyclers strained. Distinct smell in lower decks.",
+    "gravity": "0.7G standard, varies by section"
+  },
+  "districts": [
+    {
+      "name": "The Spine",
+      "description": "Central corridor connecting the three original ships. Commerce, food, services. Closest thing to respectable."
+    },
+    {
+      "name": "Berth Row",
+      "description": "Docking section. Leviathan and similar vessels moor here. Neutral ground by necessity."
+    },
+    {
+      "name": "The Tangle",
+      "description": "Lower decks. Unplanned construction. Easy to get lost. Easier to disappear someone."
+    },
+    {
+      "name": "Broker's Circuit",
+      "description": "Where jobs get made. Mira Vex operates from here. Expensive drinks, expensive information."
+    }
+  ],
+  "points_of_interest": [
+    {
+      "name": "The Rust Garden",
+      "type": "bar",
+      "description": "Crew watering hole. Neutral territory enforced by the bartender, a retired Sovereignty marine named Cole who could still kill everyone in the room if he wanted."
+    },
+    {
+      "name": "Kira's Scrap",
+      "type": "shop",
+      "description": "Ship parts, weapons, equipment. Kira asks no questions and remembers no faces. Prices are firm."
+    },
+    {
+      "name": "The Chapel",
+      "type": "church",
+      "description": "Small Church of the Architects outpost. Brother Cassius has been seen here. Not a coincidence."
+    }
+  ],
+  "factions_present": ["syndicates", "architects", "independent"],
+  "threats": [
+    "Station security is underfunded and corrupt",
+    "Multiple Syndicate families compete for territory",
+    "The Council of Captains is one assassination away from civil conflict"
+  ],
+  "secrets": [
+    "The original colony ship cores still have active memory banks. Someone is selling the data.",
+    "There's a dead zone in the Tangle where signals don't work. Nobody talks about why.",
+    "Station Nowhere's founding captain is supposedly still alive somewhere in the lower decks. Nobody has seen them in decades."
+  ],
+  "first_appearance": null,
+  "notes": "Home port for the Leviathan. Primary hub for Syndicate jobs."
+}

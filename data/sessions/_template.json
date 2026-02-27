@@ -1,0 +1,56 @@
+{
+  "id": "session-XXX",
+  "arc": "Arc Name",
+  "number": 0,
+  "date": "YYYY-MM-DD",
+  "title": "Session Title",
+  "status": "completed",
+  "summary": "Brief one-paragraph summary of what happened.",
+  "players_present": [],
+  "location": "Where the session primarily took place",
+  "objectives": {
+    "primary": "What the crew set out to do",
+    "completed": [],
+    "failed": [],
+    "new": []
+  },
+  "key_events": [
+    "Major plot beat 1",
+    "Major plot beat 2"
+  ],
+  "npcs_encountered": [],
+  "npcs_introduced": [],
+  "combat_summary": {
+    "occurred": false,
+    "enemies": [],
+    "casualties": {
+      "crew": [],
+      "enemies": []
+    },
+    "notable_moments": []
+  },
+  "loot_acquired": [],
+  "credits_gained": 0,
+  "credits_spent": 0,
+  "faction_changes": {
+    "syndicates": 0,
+    "combine": 0,
+    "sovereignty": 0,
+    "architects": 0
+  },
+  "player_choices": [
+    {
+      "choice": "Description of meaningful choice",
+      "outcome": "What happened as a result",
+      "future_implications": "Seeds this plants for later"
+    }
+  ],
+  "cliffhanger": "How the session ended / what's next",
+  "gm_notes": "Private notes for VEGA reference",
+  "quotes": [
+    {
+      "speaker": "Character name",
+      "quote": "Memorable line"
+    }
+  ]
+}

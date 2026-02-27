@@ -1,0 +1,53 @@
+{
+  "id": "dax",
+  "name": "Dax",
+  "type": "contact",
+  "faction": "independent",
+  "role": "Information Broker",
+  "status": "active",
+  "description": "An information broker operating from Station Nowhere. Dax sells secrets, locations, identities, and the kind of knowledge that gets people killed. Expensive, accurate, and completely amoral about clientele. If you can pay, Dax can tell you.",
+  "appearance": "Age unclear — could be 30 or 60, augmentation makes it hard to tell. Androgynous features, chrome-traced neural interface visible at temples. Always seated behind the same table in the same corner of the same bar. Different clothes, same position. Eyes that process you like data.",
+  "personality": {
+    "traits": ["Mercenary", "Precise", "Neutral", "Curious"],
+    "quirks": ["Never uses names, only 'client'", "Speaks in clipped, efficient sentences", "Occasionally mentions things no one told them — unsettling"]
+  },
+  "stats": {
+    "grit": 2,
+    "reflex": 4,
+    "tech": 10,
+    "wits": 10,
+    "nerve": 6,
+    "charm": 3
+  },
+  "location": "Station Nowhere, The Rust Garden (back corner)",
+  "services": {
+    "information_types": [
+      "Personnel locations",
+      "Ship movements",
+      "Faction intelligence",
+      "Historical records",
+      "Artifact provenance"
+    ],
+    "pricing": "Varies. Always paid in advance. No refunds. No negotiations.",
+    "limitations": "Won't sell information that would compromise their own safety. Has rules."
+  },
+  "relationships": {
+    "leviathan_crew": {
+      "disposition": "neutral",
+      "notes": "Potential clients. Nothing more."
+    }
+  },
+  "secrets": [
+    "Dax is plural — a collective intelligence distributed across multiple platforms. The body in the bar is just an interface.",
+    "Maintains strict neutrality not from principle but from self-preservation. Has information on everyone.",
+    "Once sold information that led to a Combine executive's assassination. The Combine doesn't know. Yet."
+  ],
+  "quotes": [
+    "Everyone has a price. The question is whether you can afford it.",
+    "I don't sell truth. I sell information. What you do with it makes it true or not.",
+    "That information exists. Whether I have it is a different question. Whether I'll sell it is a third."
+  ],
+  "first_appearance": null,
+  "last_seen": null,
+  "notes": "Utility NPC for plot advancement. Can reveal information when needed, for a price."
+}

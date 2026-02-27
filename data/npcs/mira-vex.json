@@ -1,0 +1,41 @@
+{
+  "id": "mira-vex",
+  "name": "Mira Vex",
+  "type": "contact",
+  "faction": "syndicates",
+  "role": "Broker",
+  "status": "active",
+  "description": "A Syndicate job broker operating out of the Free Margins. Mira matches crews with work and takes her percentage — no more, no less. She's not your friend, but she's reliable, which in the Margins is worth more than friendship.",
+  "appearance": "Late 30s, sharp features, dark hair pulled back tight. Dresses in practical spacer clothes with expensive accessories — the kind that say 'I can afford better but I'm working.' Eyes that assess everything in terms of value.",
+  "personality": {
+    "traits": ["Pragmatic", "Calculating", "Reliable", "Amoral"],
+    "quirks": ["Never drinks on the job", "Always knows the local time on three stations", "Doesn't ask questions about cargo — considers it unprofessional"]
+  },
+  "stats": {
+    "grit": 4,
+    "reflex": 5,
+    "tech": 6,
+    "wits": 8,
+    "nerve": 7,
+    "charm": 7
+  },
+  "location": "Station Nowhere (usually)",
+  "relationships": {
+    "leviathan_crew": {
+      "disposition": "professional",
+      "notes": "Gave them the Carrion Star job. Business relationship."
+    }
+  },
+  "secrets": [
+    "Has a Sovereignty warrant from a previous life. Uses a different name there.",
+    "Skims 2% extra on jobs the Syndicate higher-ups won't audit. Retirement fund."
+  ],
+  "quotes": [
+    "I don't sell trust. I sell reliability. Trust is extra.",
+    "You want a friend, get a dog. You want a job that pays, you talk to me.",
+    "Questions about the cargo cost extra. Answers cost more."
+  ],
+  "first_appearance": null,
+  "last_seen": null,
+  "notes": "Primary job source for Arc 1. Introduces crew to Syndicate economy."
+}

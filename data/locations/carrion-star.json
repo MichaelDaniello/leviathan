@@ -1,0 +1,80 @@
+{
+  "id": "carrion-star",
+  "name": "MSV Carrion Star",
+  "type": "ship",
+  "class": "Meridian-class Freighter",
+  "region": "free_margins",
+  "status": "adrift",
+  "description": "A mid-size freighter that dropped out of fold space 72 hours ago and went dark. She was running cargo for the Syndicates — officially industrial supplies, actually a Church artifact she wasn't supposed to know about. Now she drifts in the black, life signs flickering on sensors, not responding to hails.",
+  "details": {
+    "crew_complement": 8,
+    "cargo_capacity": "600 tons",
+    "armament": "None (freighter class)",
+    "condition": "Intact but powerless",
+    "last_known_heading": "Fold jump to Station Nowhere"
+  },
+  "layout": [
+    {
+      "name": "Bridge",
+      "description": "Standard freighter bridge. Captain's chair, nav station, comms. Power flickering. Emergency lighting only."
+    },
+    {
+      "name": "Crew Quarters",
+      "description": "Eight bunks, small common area. Signs of interrupted meals. Some blood. Not enough."
+    },
+    {
+      "name": "Cargo Bay",
+      "description": "Main hold. Crates secured. One container in the center doesn't match the manifest. Locked with Church seals."
+    },
+    {
+      "name": "Engineering",
+      "description": "Fold drive offline. Not damaged — shut down deliberately. Reactor on minimal output."
+    },
+    {
+      "name": "Medbay",
+      "description": "Small but functional. Two bodies on tables. They're not dead. They're not alive either."
+    }
+  ],
+  "current_occupants": {
+    "hollow": [
+      {
+        "name": "Captain Tomas Renner",
+        "status": "Hollow (Alpha)",
+        "location": "Mobile"
+      },
+      {
+        "name": "Engineer Patel",
+        "status": "Hollow",
+        "location": "Engineering"
+      },
+      {
+        "name": "Crew (3)",
+        "status": "Hollow",
+        "location": "Various"
+      }
+    ],
+    "human_survivors": "None confirmed",
+    "notes": "The two bodies in medbay are in transition. The process takes time."
+  },
+  "the_artifact": {
+    "name": "Resonance Key",
+    "location": "Cargo Bay (sealed container)",
+    "status": "Active",
+    "description": "An Architect device roughly the size of a human skull. Crystalline structure, faint internal luminescence. It doesn't open doors in space — it opens doors in perception. It's still on. The door is still open."
+  },
+  "atmosphere": {
+    "horror_notes": [
+      "Life support works but feels wrong — air tastes stale, recycled too many times",
+      "Ambient ship noises are present but at wrong intervals",
+      "Emergency lights create deep shadows that seem to move",
+      "The Hollow have been cleaning — blood removed, bodies repositioned. Why?"
+    ]
+  },
+  "secrets": [
+    "The ship's AI is still functional but lobotomized. The Hollow didn't know how to use it, so they cut its voice. It can still write to screens.",
+    "One crew member locked themselves in the airlock before the Hollow could get them. They vented themselves. Their suit is still outside, drifting alongside the ship.",
+    "The Resonance Key responds to strong emotions. It's why the Hollow seem drawn to intense humans."
+  ],
+  "first_appearance": "Arc 1",
+  "notes": "Primary location for Arc 1: Dead Reckoning"
+}

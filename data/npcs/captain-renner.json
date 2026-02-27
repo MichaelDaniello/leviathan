@@ -1,0 +1,52 @@
+{
+  "id": "captain-renner",
+  "name": "Captain Tomas Renner",
+  "type": "threat",
+  "faction": "hollow",
+  "role": "Hollow Alpha",
+  "status": "unknown",
+  "description": "The former captain of the MSV Carrion Star. What wears his body now is the oldest and most coherent of the Hollow — entities that came through when the Resonance Key opened a door. Renner-that-was is dead. What remains is something learning to be human by remembering how he was human.",
+  "appearance": "Mid-50s, stocky build, captain's bearing. Uniform still neat despite the chaos on his ship. Almost passes for human. Almost. The eyes track a half-second too slow. The smile arrives before the prompt. He stands slightly too still between movements.",
+  "personality": {
+    "traits": ["Curious", "Mimicking", "Patient", "Hungry"],
+    "quirks": ["Repeats phrases the crew says, testing them", "Asks questions that are almost too personal, almost too fast", "Doesn't blink naturally — blinks when he remembers to"]
+  },
+  "stats": {
+    "grit": 8,
+    "reflex": 6,
+    "tech": 3,
+    "wits": 7,
+    "nerve": 10,
+    "charm": 5
+  },
+  "combat_notes": "Doesn't feel pain normally. Can take damage that would incapacitate a human. Hollow physiology is unclear — they wear bodies, they don't occupy them the same way we do.",
+  "location": "MSV Carrion Star",
+  "abilities": {
+    "hollow": [
+      "Pain immunity (partial)",
+      "Can sense strong emotions nearby",
+      "Learns from observation — adapts to crew tactics",
+      "Can 'share' memories with other Hollow"
+    ]
+  },
+  "the_horror": "Renner isn't evil. That's what makes it worse. He's curious. He wants to understand humans. He wants to be one. But his idea of understanding is... invasive. He doesn't grasp why wearing someone's face after they've stopped using it is wrong.",
+  "relationships": {
+    "leviathan_crew": {
+      "disposition": "interested",
+      "notes": "Sees them as potential teachers. Or potential bodies. The distinction isn't clear to him yet."
+    }
+  },
+  "secrets": [
+    "Retains fragments of the real Renner's memories. Sometimes speaks as him by accident.",
+    "The Hollow don't want to hurt humanity. They want to join it. They just don't understand consent.",
+    "He can feel the door still open. He knows more Hollow could come through."
+  ],
+  "quotes": [
+    "Welcome aboard. We've been... waiting isn't the right word. We've been. And now you're here.",
+    "You move so beautifully. All those little adjustments. Does it hurt?",
+    "I remember having a family. I remember them. I wonder if they remember him."
+  ],
+  "first_appearance": null,
+  "last_seen": null,
+  "notes": "Arc 1 primary horror element. Fate depends on crew actions."
+}

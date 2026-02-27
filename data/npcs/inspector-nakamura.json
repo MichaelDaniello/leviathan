@@ -1,0 +1,42 @@
+{
+  "id": "inspector-nakamura",
+  "name": "Inspector Yuki Nakamura",
+  "type": "complication",
+  "faction": "sovereignty",
+  "role": "Criminal Investigator",
+  "status": "active",
+  "description": "A Sovereignty investigator assigned to the Margins — either a punishment posting or a sign of unusual competence, depending on who you ask. Nakamura investigates crimes that cross jurisdictional lines, which in the Margins means everything. Professional, persistent, and genuinely interested in justice — which makes them very inconvenient.",
+  "appearance": "Early 40s, slight build, sharp eyes behind practical glasses. Wears civilian clothes that are just a little too neat for the Margins. Carries a Sovereignty badge they know most people won't respect. Doesn't seem to care.",
+  "personality": {
+    "traits": ["Methodical", "Patient", "Idealistic", "Stubborn"],
+    "quirks": ["Takes notes on actual paper", "Drinks terrible coffee, seems to enjoy it", "Always thanks people for their time, even when arresting them"]
+  },
+  "stats": {
+    "grit": 4,
+    "reflex": 5,
+    "tech": 6,
+    "wits": 9,
+    "nerve": 7,
+    "charm": 5
+  },
+  "location": "Mobile — currently stationed at Station Nowhere",
+  "relationships": {
+    "leviathan_crew": {
+      "disposition": "unknown",
+      "notes": "Will become interested in crew after Carrion Star incident"
+    }
+  },
+  "secrets": [
+    "Has a CI inside the Syndicates. Protects this source above almost everything.",
+    "Was sent to the Margins after exposing corruption in Sovereignty Naval Command. This isn't a punishment — they requested it.",
+    "Knows the Combine and Sovereignty are both dirty. Keeps working anyway."
+  ],
+  "quotes": [
+    "The law doesn't stop at jurisdiction lines. People just pretend it does.",
+    "I'm not here to arrest you. I'm here to understand what happened. The arrest part comes later, if warranted.",
+    "Thank you for your time. I'll be in touch."
+  ],
+  "first_appearance": null,
+  "last_seen": null,
+  "notes": "Potential recurring complication. Can be enemy, reluctant ally, or neutral obstacle depending on crew behavior."
+}
