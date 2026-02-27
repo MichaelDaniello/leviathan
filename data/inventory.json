@@ -1,22 +1,25 @@
 {
   "ship_stores": {
     "description": "Communal supplies aboard the Leviathan",
-    "credits": 2500,
+    "credits": 98300,
+    "credits_note": "100k from Mira Vex job advance minus 4,200 resupply + 2,500 existing",
     "fuel": {
-      "current": 75,
+      "current": 68,
       "max": 100,
-      "unit": "percent"
+      "unit": "percent",
+      "notes": "Fold transit to Carrion Star position consumed ~7%"
     },
     "food_water": {
       "days_remaining": 30,
       "quality": "acceptable"
     },
     "medical_supplies": {
-      "status": "low",
+      "status": "restocked",
       "items": [
-        "Basic medkits (3)",
-        "Trauma patches (8)",
-        "Stim injectors (4)",
+        "Full surgical trauma kit (x2)",
+        "Basic medkits (x6)",
+        "Trauma patches (x20)",
+        "Stim injectors (x8)",
         "Antibiotics (limited)"
       ]
     },
@@ -52,6 +55,13 @@
         "type": "melee",
         "quantity": 2,
         "condition": "good"
+      },
+      {
+        "name": "Voss Compact PDW (used)",
+        "type": "pdw",
+        "quantity": 1,
+        "condition": "functional",
+        "notes": "Assigned to Echo"
       }
     ],
     "armor": [
@@ -64,6 +74,29 @@
         "name": "EVA Suit (Standard)",
         "quantity": 4,
         "condition": "functional"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Atmospheric Breach Kit",
+        "quantity": 4,
+        "condition": "new"
+      },
+      {
+        "name": "Signal Jammer (close-quarters)",
+        "quantity": 1,
+        "condition": "new"
+      },
+      {
+        "name": "Thermal Breaching Tape",
+        "quantity": "2 rolls",
+        "condition": "new"
+      },
+      {
+        "name": "Survey Drone (civilian grade)",
+        "quantity": 1,
+        "condition": "lightly used",
+        "notes": "Eyes and sensor suite. Won't fight. Goes in first."
       }
     ]
   },

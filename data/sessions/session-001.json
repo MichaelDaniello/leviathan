@@ -1,0 +1,99 @@
+{
+  "id": "session-001",
+  "arc": "Arc 1: Dead Reckoning",
+  "number": 1,
+  "date": "2026-02-26",
+  "title": "The Call",
+  "status": "in_progress",
+  "summary": "The crew of the Leviathan — Draven Frost, D-Volt, and Echo — assembled at Station Nowhere and took a job from Syndicate broker Mira Vex. Target: the MSV Carrion Star, a freighter that went dark 72 hours ago in the Margins. After hard negotiation and a passive scan of Mira's comm channel that revealed a Church relay node in the signal chain, the crew secured 100,000 credits and a full defensive resupply. They folded out and are now on approach to the Carrion Star's last known position.",
+  "players_present": ["Draven Frost (Mike)", "D-Volt / Dimitri Markov (Merkilo)"],
+  "location": "Station Nowhere → Transit → Approach to MSV Carrion Star",
+  "objectives": {
+    "primary": "Retrieve cargo from MSV Carrion Star — sealed lead-lined container, nav core, personal effects crate",
+    "completed": [],
+    "failed": [],
+    "new": [
+      "Board the Carrion Star",
+      "Recover sealed container (DO NOT SCAN)",
+      "Recover nav core (blackbox-class)",
+      "Recover personal effects crate — tagged RENNER, T.",
+      "Deliver to Mira Vex's coordinates"
+    ]
+  },
+  "key_events": [
+    "Crew assembled at the Fore observation blister aboard the Leviathan at Station Nowhere",
+    "Mira Vex opened comms — offered 50k for a 'clean' salvage job on the Carrion Star",
+    "Draven pushed back — crew noted no mention of the Carrion Star's nine crew",
+    "D-Volt ran a passive Warfare Suite scan on Mira's comm channel (roll: 11, success with complication)",
+    "Scan revealed: signal bounced through Church of the Architects relay node; stress micropattern on the word 'cargo'; the scan itself was passively logged by something on the relay chain",
+    "Cargo manifest reviewed — priority item is a 480kg lead-lined sealed container marked DO NOT SCAN",
+    "Draven negotiated from 50k → 80k → walked → Mira called back in 40 seconds → 100k + full resupply",
+    "Resupply at Station Nowhere: medical kit restock, breach kits, signal jammer, PDW for Echo, survey drone, thermal breaching tape",
+    "Leviathan folded out — 9-hour transit to Carrion Star position",
+    "Crew rested during transit",
+    "Now on approach — Carrion Star visible on sensors, running lights off, drifting"
+  ],
+  "npcs_encountered": ["Mira Vex"],
+  "npcs_introduced": ["Mira Vex — Syndicate broker, job source. Controlled, professional, knew the job wasn't clean. Client unknown — referred to as 'my client', not 'the Syndicate'."],
+  "combat_summary": {
+    "occurred": false,
+    "enemies": [],
+    "casualties": {
+      "crew": [],
+      "enemies": []
+    },
+    "notable_moments": []
+  },
+  "loot_acquired": [
+    "Resupply package (medical, breach kits, signal jammer, PDW, survey drone, thermal tape) — covered by Mira's provisioner credit"
+  ],
+  "credits_gained": 100000,
+  "credits_spent": 4200,
+  "faction_changes": {
+    "syndicates": 0,
+    "combine": 0,
+    "sovereignty": 0,
+    "architects": 0
+  },
+  "player_choices": [
+    {
+      "choice": "Draven walked away from 90k and forced Mira to call back",
+      "outcome": "Secured 100k — Mira moved in under 40 seconds, confirming she expected to be pushed",
+      "future_implications": "Mira knows this crew negotiates hard. Respect or annoyance — TBD."
+    },
+    {
+      "choice": "D-Volt ran a passive scan on Mira's comm channel",
+      "outcome": "Discovered Church relay node in signal chain; confirmed Mira knows what's in the cargo; the scan was logged by something on the relay",
+      "future_implications": "Something in the Church infrastructure now knows the Leviathan was curious. This will surface."
+    },
+    {
+      "choice": "Crew accepted the job despite red flags",
+      "outcome": "100k on delivery, en route to a dark ship with unknown cargo and a client Mira won't name",
+      "future_implications": "The Carrion Star is waiting. Whatever happened to nine crew is still in there."
+    }
+  ],
+  "cliffhanger": "Leviathan on approach to MSV Carrion Star — running lights off, drifting, silent. Survey drone ready. Crew assembled at the Fore. Whatever is on that ship is about to become their problem.",
+  "gm_notes": "D-Volt's scan was logged — seed this later, Church agent Brother Cassius may already know the Leviathan is coming. Mira's 'my client' distinction is intentional — client is Church-adjacent, not Syndicate. Echo-VEGA divergence established as canon (Option B). D-Volt claimed manual gunnery station. The sealed container is the Resonance Key. DO NOT reveal until dramatically appropriate.",
+  "quotes": [
+    {
+      "speaker": "Mira Vex",
+      "quote": "Clean job. Retrieval only."
+    },
+    {
+      "speaker": "VEGA",
+      "quote": "She said 'clean.' I'm logging that for later."
+    },
+    {
+      "speaker": "Draven Frost",
+      "quote": "Ace in the hole Mira, you know damn well that data core is blackbox class. 100k and some guns."
+    },
+    {
+      "speaker": "D-Volt",
+      "quote": "Well first I gotta go drain some oil."
+    },
+    {
+      "speaker": "Echo",
+      "quote": "I don't know which one that means."
+    }
+  ]
+}

@@ -55,15 +55,15 @@
   },
   "the_question": "Was I the weapon, or was I just the ammunition?",
   "flaw": "Emotional dissociation under pressure. Relationships feel like variables. The horrors of war have both hardened him and left him with crippling emotional trauma.",
-  "appearance": "Lean and muscular but not big. Short hair, long on top, with a streak of gray. Without the coat, his body looks maintained like a machine—replaced parts, serial numbers, dull metal sheen.",
+  "appearance": "Lean and muscular but not big. Short hair, long on top, with a streak of gray. Without the coat, his body looks maintained like a machine\u2014replaced parts, serial numbers, dull metal sheen.",
   "notes": "Main combat style: using technology itself as a weapon (tech-caster). Whispers to himself under focus.",
   "status": {
     "alive": true,
     "conditions": [],
-    "location": "Leviathan"
+    "location": "Leviathan \u2014 Approaching MSV Carrion Star"
   },
   "history": {
-    "sessions_played": 0,
+    "sessions_played": 1,
     "kills": 0,
     "deaths": 0,
     "notable_moments": []
