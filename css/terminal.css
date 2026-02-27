@@ -139,6 +139,30 @@ body::before {
 }
 
 /* Cards (for characters, NPCs, etc) */
+
+/* Crew inventory expanders */
+.inv-details { margin-top: 10px; }
+.inv-summary {
+  cursor: pointer;
+  color: var(--accent-cyan);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  user-select: none;
+}
+.inv-block {
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 6px;
+  background: rgba(0,0,0,0.25);
+}
+.inv-row { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.inv-label { color: var(--text-dim); }
+.inv-value { color: var(--text-bright); }
+.inv-section-title { color: var(--text-bright); font-size: 0.8rem; margin: 8px 0 4px; }
+.inv-section ul { margin: 0 0 0 18px; padding: 0; color: var(--text-primary); }
+
 .card {
   background: var(--bg-card);
   border: 1px solid rgba(255, 255, 255, 0.1);

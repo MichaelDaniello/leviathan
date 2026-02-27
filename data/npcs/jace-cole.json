@@ -1,0 +1,44 @@
+{
+  "id": "jace-cole",
+  "name": "Jace Cole",
+  "type": "npc",
+  "faction": "independent",
+  "role": "Cargo Specialist (MSV Carrion Star)",
+  "status": "extracted",
+  "description": "A Carrion Star crewman pulled out of the Hollow network by D-Volt's System Hijack. Shaken, semi-conscious, and newly alone in his own head. Knows where the sealed container is and is terrified of what still wears his shipmates.",
+  "appearance": "Mid-40s. Standard freighter coveralls with a faded CARGO patch. Eyes bloodshot from exhaustion or something worse. Moves like someone waking up from a long nightmare.",
+  "personality": {
+    "traits": ["Traumatized", "Practical", "Guilty"],
+    "quirks": ["Flinches at the word 'container'", "Keeps rubbing his implant site", "Looks for exits before answering questions"]
+  },
+  "stats": {
+    "grit": 3,
+    "reflex": 4,
+    "tech": 4,
+    "wits": 5,
+    "nerve": 2,
+    "charm": 4
+  },
+  "location": "Aboard Leviathan (quarantine nook near medbay)",
+  "relationships": {
+    "leviathan_crew": {
+      "disposition": "fearful but cooperative",
+      "notes": "Owes the crew his life. Unsure if they can keep him alive."
+    },
+    "carrion_star": {
+      "disposition": "terrified",
+      "notes": "Believes his shipmates are gone and something else is wearing them."
+    }
+  },
+  "intel": {
+    "container_location": "Cargo bay, midships, starboard stack; chained down",
+    "warning": "They will let you take the box — they want you. Do not open a door they can walk through."
+  },
+  "quotes": [
+    "Cargo bay. Starboard stack. It's chained down like it's alive.",
+    "They don't want the box. They want you."
+  ],
+  "first_appearance": "Arc 1",
+  "last_seen": "2026-02-26",
+  "notes": "If kept alive, Cole can provide interior layout details and personal context on Renner/crew. If returned or lost, the Hollow may attempt retrieval or mimic him."
+}

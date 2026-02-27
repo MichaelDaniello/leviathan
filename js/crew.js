@@ -92,7 +92,7 @@ const CrewManifest = {
         </div>
       `;
     }
-    
+
     // HP display for player characters
     let hpHtml = '';
     if (char.derived?.hp_max && !isNPC) {
@@ -101,6 +101,24 @@ const CrewManifest = {
           <span class="hp-label">HP:</span> 
           <span class="hp-value">${char.derived.hp_current}/${char.derived.hp_max}</span>
         </div>
+      `;
+    }
+
+    // Expandable inventory (weapons/tools/credits)
+    let invHtml = '';
+    if (char.gear && !isNPC) {
+      const weapons = (char.gear.weapons || []).map(w => `<li>${w}</li>`).join('');
+      const tools = (char.gear.tools || []).map(t => `<li>${t}</li>`).join('');
+      const credits = (char.gear.credits ?? 0);
+      invHtml = `
+        <details class="inv-details">
+          <summary class="inv-summary">Inventory</summary>
+          <div class="inv-block">
+            <div class="inv-row"><span class="inv-label">Credits</span><span class="inv-value">${credits}</span></div>
+            ${weapons ? `<div class="inv-section"><div class="inv-section-title">Weapons</div><ul>${weapons}</ul></div>` : ''}
+            ${tools ? `<div class="inv-section"><div class="inv-section-title">Tools</div><ul>${tools}</ul></div>` : ''}
+          </div>
+        </details>
       `;
     }
     
@@ -117,6 +135,7 @@ const CrewManifest = {
         <p class="text-dim mb-2" style="font-size: 0.85rem;">${description}</p>
         ${hpHtml}
         ${edgeHtml}
+        ${invHtml}
         <div class="card-stats">${statsHtml}</div>
       </div>
     `;
