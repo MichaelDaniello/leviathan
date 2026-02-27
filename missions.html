@@ -25,6 +25,23 @@
     .nav-links a.active {
       color: var(--accent-cyan);
     }
+    .arc-header {
+      background: linear-gradient(135deg, rgba(255, 107, 53, 0.2) 0%, rgba(0,0,0,0) 100%);
+      border-left: 4px solid var(--accent-orange);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .arc-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--accent-orange);
+      margin-bottom: 8px;
+    }
+    .arc-subtitle {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
     .mission-card {
       background: var(--bg-card);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -36,9 +53,8 @@
       border-color: var(--accent-green);
       box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
     }
-    .mission-card.complete {
-      border-color: var(--accent-cyan);
-      opacity: 0.8;
+    .mission-card.pending {
+      border-color: var(--accent-yellow);
     }
     .mission-header {
       display: flex;
@@ -67,63 +83,72 @@
       background: var(--accent-yellow);
       color: var(--bg-dark);
     }
-    .mission-status.complete {
-      background: var(--accent-cyan);
-      color: var(--bg-dark);
-    }
-    .mission-status.failed {
-      background: var(--accent-red);
-      color: var(--bg-dark);
-    }
     .mission-objective {
-      color: var(--text-dim);
-      font-size: 0.9rem;
+      color: var(--text-primary);
+      font-size: 0.95rem;
       margin-bottom: 16px;
+      line-height: 1.5;
     }
-    .mission-log {
+    .mission-details {
       background: rgba(0, 0, 0, 0.3);
       border-radius: 4px;
-      padding: 12px;
+      padding: 16px;
       margin-top: 12px;
     }
-    .log-entry {
+    .detail-row {
+      display: flex;
       padding: 8px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 0.85rem;
     }
-    .log-entry:last-child {
+    .detail-row:last-child {
       border-bottom: none;
     }
-    .log-timestamp {
+    .detail-label {
       color: var(--text-dim);
-      font-size: 0.75rem;
-      margin-right: 8px;
+      width: 120px;
+      flex-shrink: 0;
+      font-size: 0.85rem;
     }
-    .log-text {
+    .detail-value {
       color: var(--text-primary);
+      font-size: 0.85rem;
     }
-    .log-roll {
-      color: var(--accent-cyan);
-      font-weight: 600;
+    .detail-value.warning {
+      color: var(--accent-orange);
     }
-    .log-success {
-      color: var(--accent-green);
-    }
-    .log-failure {
+    .detail-value.danger {
       color: var(--accent-red);
     }
     .crew-involved {
       display: flex;
       gap: 8px;
-      margin-top: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
     }
     .crew-tag {
-      padding: 4px 8px;
+      padding: 4px 10px;
       background: rgba(0, 212, 255, 0.1);
       border: 1px solid var(--accent-cyan);
       border-radius: 2px;
       font-size: 0.75rem;
       color: var(--accent-cyan);
+    }
+    .intel-warning {
+      background: rgba(255, 107, 53, 0.1);
+      border: 1px solid var(--accent-orange);
+      border-radius: 4px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+    .intel-warning h4 {
+      color: var(--accent-orange);
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+    .intel-warning p {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      line-height: 1.5;
     }
     .empty-state {
       text-align: center;
@@ -149,39 +174,74 @@
       </div>
       <nav class="nav-links">
         <a href="index.html">Crew</a>
-        <a href="terminals/bridge.html">Bridge</a>
+        <a href="npcs.html">Contacts</a>
         <a href="missions.html" class="active">Missions</a>
         <a href="galaxy.html">Galaxy</a>
       </nav>
     </header>
 
-    <!-- Active Mission -->
+    <!-- Current Arc -->
     <section class="panel">
-      <div class="panel-header">Active Mission</div>
-      <div class="panel-content" id="active-mission">
+      <div class="panel-header">Current Arc</div>
+      <div class="panel-content">
+        <div class="arc-header">
+          <div class="arc-title">ARC 1: DEAD RECKONING</div>
+          <div class="arc-subtitle">"The universe doesn't care if you live or die. That's the good news."</div>
+        </div>
+
+        <!-- Active Mission -->
         <div class="mission-card active">
           <div class="mission-header">
-            <div class="mission-title">Mission 0: First Contact</div>
-            <span class="mission-status active">In Progress</span>
+            <div class="mission-title">Salvage Operation: MSV Carrion Star</div>
+            <span class="mission-status active">Active</span>
           </div>
           <div class="mission-objective">
-            The crew of the Leviathan assembles for the first time. Objectives TBD as the story unfolds.
+            A mid-size freighter dropped out of fold space 72 hours ago and went dark. Standard salvage contract: board the vessel, recover the cargo, get paid. Simple job. The kind that never stays simple.
+          </div>
+          <div class="mission-details">
+            <div class="detail-row">
+              <span class="detail-label">Client</span>
+              <span class="detail-value">Mira Vex (Syndicate Broker)</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Target</span>
+              <span class="detail-value">MSV Carrion Star — Meridian-class Freighter</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Objective</span>
+              <span class="detail-value">Recover cargo manifest contents</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Payment</span>
+              <span class="detail-value">Standard salvage rate + finder's fee</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Threat Level</span>
+              <span class="detail-value warning">Unknown — Sensors show life signs but no response to hails</span>
+            </div>
           </div>
           <div class="crew-involved">
             <span class="crew-tag">Draven Frost</span>
             <span class="crew-tag">D-Volt</span>
             <span class="crew-tag">Echo</span>
           </div>
-          <div class="mission-log">
-            <div class="log-entry">
-              <span class="log-timestamp">[2026.02.26]</span>
-              <span class="log-text">Mission initiated. Crew manifest locked.</span>
-            </div>
-            <div class="log-entry">
-              <span class="log-timestamp">[2026.02.26]</span>
-              <span class="log-text">Awaiting Turn 1: Boarding the Leviathan...</span>
-            </div>
-          </div>
+        </div>
+
+        <!-- VEGA Intel Warning -->
+        <div class="intel-warning">
+          <h4>⚠ VEGA ANALYSIS</h4>
+          <p>Anomalous readings from target vessel. Life support active but power grid running at minimal capacity. Biosigns present but... irregular. Recommend heightened caution during boarding operations. Something about this doesn't add up.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Queue -->
+    <section class="panel">
+      <div class="panel-header">Mission Queue</div>
+      <div class="panel-content">
+        <div class="empty-state">
+          <h3>Queue Empty</h3>
+          <p>Complete current mission to unlock new contracts.</p>
         </div>
       </div>
     </section>
@@ -192,12 +252,12 @@
       <div class="panel-content" id="mission-archive">
         <div class="empty-state">
           <h3>No Completed Missions</h3>
-          <p>Completed missions will appear here with full logs.</p>
+          <p>Completed missions will appear here with full logs and outcomes.</p>
         </div>
       </div>
     </section>
 
-    <!-- Session Statistics -->
+    <!-- Campaign Statistics -->
     <section class="panel">
       <div class="panel-header">Campaign Statistics</div>
       <div class="panel-content">

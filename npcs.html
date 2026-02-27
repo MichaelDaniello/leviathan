@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEVIATHAN — Contacts & Threats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/terminal.css">
+  <style>
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-cyan);
+    }
+    .npc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 20px;
+    }
+    .npc-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .npc-card.contact {
+      border-top: 3px solid var(--accent-cyan);
+    }
+    .npc-card.threat {
+      border-top: 3px solid var(--accent-red);
+    }
+    .npc-card.unknown {
+      border-top: 3px solid var(--accent-orange);
+    }
+    .npc-card.neutral {
+      border-top: 3px solid var(--text-dim);
+    }
+    .npc-header {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .npc-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--text-bright);
+      margin-bottom: 4px;
+    }
+    .npc-role {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .npc-faction {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 2px;
+      font-size: 0.7rem;
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .npc-faction.syndicates {
+      background: rgba(138, 43, 226, 0.2);
+      color: #b57edc;
+      border: 1px solid rgba(138, 43, 226, 0.4);
+    }
+    .npc-faction.architects {
+      background: rgba(255, 215, 0, 0.2);
+      color: #ffd700;
+      border: 1px solid rgba(255, 215, 0, 0.4);
+    }
+    .npc-faction.sovereignty {
+      background: rgba(70, 130, 180, 0.2);
+      color: #87ceeb;
+      border: 1px solid rgba(70, 130, 180, 0.4);
+    }
+    .npc-faction.independent {
+      background: rgba(128, 128, 128, 0.2);
+      color: #aaa;
+      border: 1px solid rgba(128, 128, 128, 0.4);
+    }
+    .npc-faction.hollow {
+      background: rgba(255, 68, 68, 0.2);
+      color: var(--accent-red);
+      border: 1px solid rgba(255, 68, 68, 0.4);
+    }
+    .npc-body {
+      padding: 20px;
+    }
+    .npc-desc {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .npc-traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .trait-tag {
+      padding: 3px 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 2px;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+    .npc-quote {
+      font-style: italic;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.3);
+      border-left: 2px solid var(--accent-cyan);
+      border-radius: 0 4px 4px 0;
+    }
+    .npc-quote.threat {
+      border-left-color: var(--accent-red);
+    }
+    .disposition {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .disposition-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+    .disposition-value {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .disposition-value.friendly {
+      color: var(--accent-green);
+    }
+    .disposition-value.neutral {
+      color: var(--accent-cyan);
+    }
+    .disposition-value.unknown {
+      color: var(--accent-orange);
+    }
+    .disposition-value.hostile {
+      color: var(--accent-red);
+    }
+    .section-divider {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 30px 0 20px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .section-divider.threat {
+      color: var(--accent-red);
+      border-bottom-color: rgba(255, 68, 68, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div>
+        <h1 class="ship-name">LEVIATHAN</h1>
+        <div class="ship-status">
+          <span class="status-indicator online"></span>
+          Personnel Database · Known Contacts
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Crew</a>
+        <a href="npcs.html" class="active">Contacts</a>
+        <a href="missions.html">Missions</a>
+        <a href="galaxy.html">Galaxy</a>
+      </nav>
+    </header>
+
+    <!-- Contacts -->
+    <section class="panel">
+      <div class="panel-header">Known Contacts</div>
+      <div class="panel-content">
+        <div class="npc-grid">
+          
+          <!-- Mira Vex -->
+          <div class="npc-card contact">
+            <div class="npc-header">
+              <div class="npc-name">Mira Vex</div>
+              <div class="npc-role">Job Broker</div>
+              <span class="npc-faction syndicates">Syndicates</span>
+            </div>
+            <div class="npc-body">
+              <div class="npc-desc">
+                A Syndicate job broker operating out of the Free Margins. Mira matches crews with work and takes her percentage — no more, no less. She's not your friend, but she's reliable, which in the Margins is worth more than friendship.
+              </div>
+              <div class="npc-traits">
+                <span class="trait-tag">Pragmatic</span>
+                <span class="trait-tag">Calculating</span>
+                <span class="trait-tag">Reliable</span>
+              </div>
+              <div class="npc-quote">
+                "I don't sell trust. I sell reliability. Trust is extra."
+              </div>
+              <div class="disposition">
+                <span class="disposition-label">Disposition:</span>
+                <span class="disposition-value neutral">Professional</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dax -->
+          <div class="npc-card contact">
+            <div class="npc-header">
+              <div class="npc-name">Dax</div>
+              <div class="npc-role">Information Broker</div>
+              <span class="npc-faction independent">Independent</span>
+            </div>
+            <div class="npc-body">
+              <div class="npc-desc">
+                An information broker operating from Station Nowhere. Dax sells secrets, locations, identities, and the kind of knowledge that gets people killed. Expensive, accurate, and completely amoral about clientele.
+              </div>
+              <div class="npc-traits">
+                <span class="trait-tag">Mercenary</span>
+                <span class="trait-tag">Precise</span>
+                <span class="trait-tag">Neutral</span>
+              </div>
+              <div class="npc-quote">
+                "Everyone has a price. The question is whether you can afford it."
+              </div>
+              <div class="disposition">
+                <span class="disposition-label">Disposition:</span>
+                <span class="disposition-value neutral">Neutral (Paid)</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Complications -->
+        <div class="section-divider">Complications</div>
+        <div class="npc-grid">
+
+          <!-- Brother Cassius -->
+          <div class="npc-card unknown">
+            <div class="npc-header">
+              <div class="npc-name">Brother Cassius</div>
+              <div class="npc-role">Field Agent</div>
+              <span class="npc-faction architects">Church of the Architects</span>
+            </div>
+            <div class="npc-body">
+              <div class="npc-desc">
+                A field operative for the Church of the Architects. Brother Cassius retrieves artifacts, silences problems, and maintains the faith — not necessarily in that order. Unfailingly polite, deeply devout, and capable of extreme violence delivered with genuine regret.
+              </div>
+              <div class="npc-traits">
+                <span class="trait-tag">Devout</span>
+                <span class="trait-tag">Patient</span>
+                <span class="trait-tag">Ruthless</span>
+                <span class="trait-tag">Polite</span>
+              </div>
+              <div class="npc-quote">
+                "I apologize for the inconvenience. Truly. But the artifact cannot remain in unsanctified hands."
+              </div>
+              <div class="disposition">
+                <span class="disposition-label">Disposition:</span>
+                <span class="disposition-value unknown">Unknown — Not Yet Encountered</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inspector Nakamura -->
+          <div class="npc-card neutral">
+            <div class="npc-header">
+              <div class="npc-name">Inspector Yuki Nakamura</div>
+              <div class="npc-role">Criminal Investigator</div>
+              <span class="npc-faction sovereignty">Sovereignty</span>
+            </div>
+            <div class="npc-body">
+              <div class="npc-desc">
+                A Sovereignty investigator assigned to the Margins — either a punishment posting or a sign of unusual competence. Professional, persistent, and genuinely interested in justice — which makes them very inconvenient.
+              </div>
+              <div class="npc-traits">
+                <span class="trait-tag">Methodical</span>
+                <span class="trait-tag">Patient</span>
+                <span class="trait-tag">Idealistic</span>
+              </div>
+              <div class="npc-quote">
+                "The law doesn't stop at jurisdiction lines. People just pretend it does."
+              </div>
+              <div class="disposition">
+                <span class="disposition-label">Disposition:</span>
+                <span class="disposition-value unknown">Unknown — Not Yet Encountered</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Threats -->
+        <div class="section-divider threat">⚠ Active Threats</div>
+        <div class="npc-grid">
+
+          <!-- Captain Renner -->
+          <div class="npc-card threat">
+            <div class="npc-header">
+              <div class="npc-name">Captain Tomas Renner</div>
+              <div class="npc-role">Hollow Alpha · Former Carrion Star Captain</div>
+              <span class="npc-faction hollow">Hollow</span>
+            </div>
+            <div class="npc-body">
+              <div class="npc-desc">
+                The former captain of the MSV Carrion Star. What wears his body now is the oldest and most coherent of the Hollow — entities that came through when an artifact opened a door. Renner-that-was is dead. What remains is something learning to be human by remembering how he was human.
+              </div>
+              <div class="npc-traits">
+                <span class="trait-tag">Curious</span>
+                <span class="trait-tag">Mimicking</span>
+                <span class="trait-tag">Patient</span>
+                <span class="trait-tag">Wrong</span>
+              </div>
+              <div class="npc-quote threat">
+                "Welcome aboard. We've been... waiting isn't the right word. We've been. And now you're here."
+              </div>
+              <div class="disposition">
+                <span class="disposition-label">Disposition:</span>
+                <span class="disposition-value hostile">Hostile — Location: MSV Carrion Star</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.8rem;">
+      <p>LEVIATHAN Operating System v2.4.87 · VEGA Core Active</p>
+      <p class="mt-1">"Know your friends. Know your enemies. Know the difference."</p>
+    </footer>
+  </div>
+</body>
+</html>
