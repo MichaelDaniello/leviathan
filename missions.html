@@ -159,6 +159,44 @@
       color: var(--text-primary);
       margin-bottom: 8px;
     }
+    .progress-list {
+      display: grid;
+      gap: 12px;
+    }
+    .progress-entry {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--accent-cyan);
+      border-radius: 4px;
+      padding: 14px;
+    }
+    .progress-entry.completed {
+      border-left-color: var(--accent-green);
+    }
+    .progress-entry.pending {
+      border-left-color: var(--accent-yellow);
+    }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .progress-title {
+      color: var(--text-bright);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+    .progress-summary {
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
   </style>
 </head>
 <body>
@@ -185,13 +223,13 @@
     <section class="panel">
       <div class="panel-header">Current Arc</div>
       <div class="panel-content">
-        <div class="arc-header">
+        <div class="arc-header" id="arc-header">
           <div class="arc-title">ARC 1: DEAD RECKONING</div>
           <div class="arc-subtitle">"The universe doesn't care if you live or die. That's the good news."</div>
         </div>
 
         <!-- Active Mission -->
-        <div class="mission-card active">
+        <div class="mission-card active" id="active-mission-card">
           <div class="mission-header">
             <div class="mission-title">Salvage Operation: MSV Carrion Star</div>
             <span class="mission-status active">Active</span>
@@ -229,7 +267,7 @@
         </div>
 
         <!-- VEGA Intel Warning -->
-        <div class="intel-warning">
+        <div class="intel-warning" id="intel-warning">
           <h4>⚠ VEGA ANALYSIS</h4>
           <p>Anomalous readings from target vessel. Life support active but power grid running at minimal capacity. Biosigns present but... irregular. Recommend heightened caution during boarding operations. Something about this doesn't add up.</p>
         </div>
@@ -251,7 +289,7 @@
     <section class="panel">
       <div class="panel-header">Mission Archive</div>
       <div class="panel-content" id="mission-archive">
-        <div class="empty-state">
+        <div class="empty-state" id="mission-archive-fallback">
           <h3>No Completed Missions</h3>
           <p>Completed missions will appear here with full logs and outcomes.</p>
         </div>
@@ -265,15 +303,15 @@
         <div class="grid-3">
           <div class="stat">
             <div class="stat-label">Missions Complete</div>
-            <div class="stat-value">0</div>
+            <div class="stat-value" id="stat-missions-complete">0</div>
           </div>
           <div class="stat">
             <div class="stat-label">Total Sessions</div>
-            <div class="stat-value">0</div>
+            <div class="stat-value" id="stat-total-sessions">0</div>
           </div>
           <div class="stat">
             <div class="stat-label">Crew Deaths</div>
-            <div class="stat-value">0</div>
+            <div class="stat-value" id="stat-crew-deaths">0</div>
           </div>
         </div>
       </div>
@@ -285,5 +323,6 @@
       <p class="mt-1">"Every mission is a chance to die gloriously. Or boringly. We'll see."</p>
     </footer>
   </div>
+  <script src="js/missions.js"></script>
 </body>
 </html>

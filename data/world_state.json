@@ -1,0 +1,56 @@
+{
+  "current_arc": "arc-1",
+  "current_session_id": "session-001",
+  "current_mission_target": "carrion-star",
+  "leviathan": {
+    "current_location_id": "carrion-star"
+  },
+  "map": {
+    "markers": {
+      "station-nowhere": {
+        "left_pct": 25,
+        "top_pct": 45
+      },
+      "carrion-star": {
+        "left_pct": 65,
+        "top_pct": 35
+      },
+      "leviathan": {
+        "left_pct": 64,
+        "top_pct": 35.8
+      },
+      "combine-core": {
+        "left_pct": 85,
+        "top_pct": 70
+      },
+      "sovereignty-space": {
+        "left_pct": 10,
+        "top_pct": 75
+      }
+    },
+    "travel_route": {
+      "from": "station-nowhere",
+      "to": "carrion-star",
+      "style": "dashed"
+    }
+  },
+  "active_alerts": [
+    {
+      "id": "carrion-star-compromised",
+      "severity": "high",
+      "title": "Carrion Star compromised",
+      "detail": "Hollow activity confirmed aboard target vessel. Boarding operations require hardened containment protocols."
+    },
+    {
+      "id": "church-relay-scan-log",
+      "severity": "medium",
+      "title": "Church relay logged scan",
+      "detail": "Passive scan of Mira Vex comm chain was detected on an Architect relay route. Expect attention."
+    }
+  ],
+  "inventory_summary": {
+    "ship_credits": 95800,
+    "fuel_status": "Fold reserves stable for one additional short-hop extraction burn",
+    "med_status": "Restocked before departure; one trauma slot occupied by Jace Cole"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "id": "arc-1",
+  "title": "ARC 1: DEAD RECKONING",
+  "subtitle": "The universe doesn't care if you live or die. That's the good news.",
+  "active_mission": {
+    "title": "Salvage Operation: MSV Carrion Star",
+    "status": "active",
+    "objective": "Recover the sealed container, nav core, and personal effects crate while preventing Hollow entities from boarding the Leviathan.",
+    "client": "Mira Vex (Syndicate Broker)",
+    "target": "MSV Carrion Star — Meridian-class Freighter",
+    "payment": "100,000 credits + full defensive resupply",
+    "threat_level": "Confirmed hostile anomaly (Hollow network)",
+    "crew": ["Draven Frost", "D-Volt", "Echo"]
+  },
+  "intel_warning": "Hollow entities remain active aboard the Carrion Star. Cole confirms the sealed container is chained in cargo bay midships, starboard stack. Drone Eye-1 is presumed lost after synchronized hostile response.",
+  "progression": [
+    {
+      "id": "a1-p01",
+      "session_id": "session-001",
+      "date": "2026-02-26",
+      "status": "completed",
+      "title": "Carrion Star job accepted",
+      "summary": "Crew accepted Mira Vex's salvage contract on the MSV Carrion Star after confirming job details were intentionally incomplete."
+    },
+    {
+      "id": "a1-p02",
+      "session_id": "session-001",
+      "date": "2026-02-26",
+      "status": "completed",
+      "title": "Negotiation with Mira Vex",
+      "summary": "Draven forced terms from 50k to 100k and secured a full resupply package before launch."
+    },
+    {
+      "id": "a1-p03",
+      "session_id": "session-001",
+      "date": "2026-02-26",
+      "status": "completed",
+      "title": "Defensive resupply completed",
+      "summary": "Medical stores, breach kits, signal jammer, PDW for Echo, survey drone, and thermal breaching tape were loaded at Station Nowhere."
+    },
+    {
+      "id": "a1-p04",
+      "session_id": "session-001",
+      "date": "2026-02-26",
+      "status": "completed",
+      "title": "Approach to target",
+      "summary": "Leviathan completed fold transit and approached Carrion Star running dark and adrift."
+    },
+    {
+      "id": "a1-p05",
+      "session_id": "session-001",
+      "date": "2026-02-26",
+      "status": "completed",
+      "title": "Boarding action",
+      "summary": "Crew boarded via port docking collar and encountered synchronized biosign behavior inconsistent with normal survivors."
+    },
+    {
+      "id": "a1-p06",
+      "session_id": "session-001",
+      "date": "2026-02-26",
+      "status": "completed",
+      "title": "First Hollow contact",
+      "summary": "Captain Renner and linked crew displayed coordinated behavior, demanded passage, and confirmed hostile anomaly profile."
+    },
+    {
+      "id": "a1-p07",
+      "session_id": "session-001",
+      "date": "2026-02-26",
+      "status": "completed",
+      "title": "Jace Cole extracted",
+      "summary": "D-Volt severed Cole from the network using System Hijack; crew withdrew with Cole aboard Leviathan."
+    },
+    {
+      "id": "a1-p08",
+      "session_id": "session-001",
+      "date": "2026-02-26",
+      "status": "completed",
+      "title": "Survey drone lost",
+      "summary": "Eye-1 recon feed cut to static after entities turned in unison toward the drone. Asset presumed destroyed or captured."
+    }
+  ]
+}

@@ -414,7 +414,7 @@
           <div class="map-grid"></div>
           
           <!-- Station Nowhere (Home) -->
-          <div class="map-location" id="station-nowhere-marker" style="left: 25%; top: 45%;">
+          <div class="map-location" id="station-nowhere-marker" data-location-id="station-nowhere" style="left: 25%; top: 45%;">
             <div class="location-marker station"></div>
             <div class="location-label">Station Nowhere</div>
             <div class="location-tooltip">
@@ -426,7 +426,7 @@
           </div>
           
           <!-- Leviathan (currently near Carrion Star) -->
-          <div class="map-location" id="leviathan-marker" style="left: 64%; top: 35.8%;">
+          <div class="map-location" id="leviathan-marker" data-location-id="leviathan" style="left: 64%; top: 35.8%;">
             <div class="location-marker ship"></div>
             <div class="location-tooltip">
               <div class="tooltip-name">LVN-0017 Leviathan</div>
@@ -437,7 +437,7 @@
           </div>
           
           <!-- MSV Carrion Star (Mission Target) -->
-          <div class="map-location" id="carrion-star-marker" style="left: 65%; top: 35%;">
+          <div class="map-location" id="carrion-star-marker" data-location-id="carrion-star" style="left: 65%; top: 35%;">
             <div class="location-marker hostile"></div>
             <div class="location-label">MSV Carrion Star</div>
             <div class="location-tooltip">
@@ -449,7 +449,7 @@
           </div>
           
           <!-- Combine Territory Marker -->
-          <div class="map-location" style="left: 85%; top: 70%;">
+          <div class="map-location" data-location-id="combine-core" style="left: 85%; top: 70%;">
             <div class="location-marker territory"></div>
             <div class="location-label" style="color: var(--accent-orange);">→ Core Systems</div>
             <div class="location-tooltip">
@@ -461,7 +461,7 @@
           </div>
           
           <!-- Sovereignty Space Marker -->
-          <div class="map-location" style="left: 10%; top: 75%;">
+          <div class="map-location" data-location-id="sovereignty-space" style="left: 10%; top: 75%;">
             <div class="location-marker territory"></div>
             <div class="location-label" style="color: var(--accent-orange);">← Sovereignty</div>
             <div class="location-tooltip">
@@ -473,7 +473,7 @@
           </div>
           
           <!-- Travel Route (dotted line between Station Nowhere and Carrion Star) -->
-          <div class="travel-line dashed" id="station-to-carrion-route"></div>
+          <div class="travel-line dashed" id="travel-route"></div>
           
           <!-- Legend -->
           <div class="map-legend">
@@ -644,10 +644,21 @@
   <script>
     (function () {
       const map = document.getElementById('galaxy-map');
-      const stationMarker = document.getElementById('station-nowhere-marker');
-      const carrionMarker = document.getElementById('carrion-star-marker');
-      const route = document.getElementById('station-to-carrion-route');
-      if (!map || !stationMarker || !carrionMarker || !route) return;
+      const route = document.getElementById('travel-route');
+      if (!map || !route) return;
+
+      const defaultState = {
+        map: {
+          markers: {},
+          travel_route: {
+            from: 'station-nowhere',
+            to: 'carrion-star',
+            style: 'dashed'
+          }
+        }
+      };
+
+      let routeEndpoints = { ...defaultState.map.travel_route };
 
       const markerCenter = (locationEl, mapRect) => {
         const marker = locationEl.querySelector('.location-marker');
@@ -659,10 +670,34 @@
         };
       };
 
+      const applyMarkerPositions = (state) => {
+        const markers = state?.map?.markers || {};
+        Object.entries(markers).forEach(([locationId, position]) => {
+          const markerEl = map.querySelector(`[data-location-id="${locationId}"]`);
+          if (!markerEl) return;
+          if (typeof position.left_pct === 'number') {
+            markerEl.style.left = `${position.left_pct}%`;
+          }
+          if (typeof position.top_pct === 'number') {
+            markerEl.style.top = `${position.top_pct}%`;
+          }
+        });
+
+        routeEndpoints = {
+          ...defaultState.map.travel_route,
+          ...(state?.map?.travel_route || {})
+        };
+        route.classList.toggle('dashed', routeEndpoints.style !== 'solid');
+      };
+
       const updateTravelRoute = () => {
+        const startEl = map.querySelector(`[data-location-id="${routeEndpoints.from}"]`);
+        const endEl = map.querySelector(`[data-location-id="${routeEndpoints.to}"]`);
+        if (!startEl || !endEl) return;
+
         const mapRect = map.getBoundingClientRect();
-        const start = markerCenter(stationMarker, mapRect);
-        const end = markerCenter(carrionMarker, mapRect);
+        const start = markerCenter(startEl, mapRect);
+        const end = markerCenter(endEl, mapRect);
         if (!start || !end) return;
 
         const deltaX = end.x - start.x;
@@ -676,9 +711,25 @@
         route.style.transform = `rotate(${angle}deg)`;
       };
 
+      const init = async () => {
+        try {
+          const response = await fetch('data/world_state.json');
+          if (response.ok) {
+            const state = await response.json();
+            applyMarkerPositions(state);
+          } else {
+            applyMarkerPositions(defaultState);
+          }
+        } catch (err) {
+          applyMarkerPositions(defaultState);
+        }
+
+        updateTravelRoute();
+      };
+
       window.addEventListener('resize', updateTravelRoute);
       window.addEventListener('load', updateTravelRoute);
-      updateTravelRoute();
+      init();
     }());
   </script>
 </body>
