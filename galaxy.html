@@ -25,6 +25,226 @@
     .nav-links a.active {
       color: var(--accent-cyan);
     }
+    
+    /* Galaxy Map */
+    .galaxy-map {
+      position: relative;
+      background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(10,15,30,0.95) 100%);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 8px;
+      min-height: 500px;
+      overflow: hidden;
+    }
+    .galaxy-map::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background-image: 
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 15% 65%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 40% 15%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 45% 55%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 55% 25%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 75% 85%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 85% 30%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(2px 2px at 20% 45%, rgba(0,212,255,0.6), transparent),
+        radial-gradient(2px 2px at 65% 75%, rgba(255,107,53,0.5), transparent),
+        radial-gradient(2px 2px at 80% 20%, rgba(0,255,136,0.4), transparent);
+      animation: drift 60s linear infinite;
+    }
+    @keyframes drift {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Map Grid Overlay */
+    .map-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+    
+    /* Location Markers */
+    .map-location {
+      position: absolute;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .map-location:hover {
+      transform: scale(1.2);
+      z-index: 100;
+    }
+    .location-marker {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid;
+      position: relative;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .location-marker.station {
+      background: rgba(0, 212, 255, 0.3);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+    .location-marker.ship {
+      background: rgba(0, 255, 136, 0.3);
+      border-color: var(--accent-green);
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+      width: 12px;
+      height: 12px;
+    }
+    .location-marker.hostile {
+      background: rgba(255, 68, 68, 0.3);
+      border-color: var(--accent-red);
+      box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+      animation: pulse-warning 1.5s ease-in-out infinite;
+    }
+    .location-marker.territory {
+      width: 24px;
+      height: 24px;
+      background: rgba(255, 107, 53, 0.2);
+      border-color: var(--accent-orange);
+      box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    @keyframes pulse-warning {
+      0%, 100% { opacity: 1; box-shadow: 0 0 10px rgba(255, 68, 68, 0.5); }
+      50% { opacity: 0.6; box-shadow: 0 0 20px rgba(255, 68, 68, 0.8); }
+    }
+    
+    /* Location Label */
+    .location-label {
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-shadow: 0 0 10px rgba(0,0,0,0.8);
+      pointer-events: none;
+      opacity: 0.7;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .map-location:hover .location-label {
+      opacity: 1;
+      color: var(--text-bright);
+    }
+    
+    /* Tooltip */
+    .location-tooltip {
+      position: absolute;
+      bottom: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(10, 15, 25, 0.95);
+      border: 1px solid var(--accent-cyan);
+      border-radius: 4px;
+      padding: 12px 16px;
+      min-width: 220px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+      z-index: 1000;
+      pointer-events: none;
+    }
+    .map-location:hover .location-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+    .tooltip-name {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.9rem;
+      color: var(--text-bright);
+      margin-bottom: 4px;
+    }
+    .tooltip-type {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .tooltip-desc {
+      font-size: 0.8rem;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+    .tooltip-status {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.75rem;
+    }
+    .tooltip-status.friendly { color: var(--accent-green); }
+    .tooltip-status.hostile { color: var(--accent-red); }
+    .tooltip-status.neutral { color: var(--accent-cyan); }
+    
+    /* Travel Line */
+    .travel-line {
+      position: absolute;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-green), transparent);
+      transform-origin: left center;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .travel-line.dashed {
+      background: repeating-linear-gradient(90deg, var(--accent-orange), var(--accent-orange) 5px, transparent 5px, transparent 10px);
+    }
+    
+    /* Map Legend */
+    .map-legend {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.75rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .legend-item:last-child {
+      margin-bottom: 0;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid;
+    }
+    .legend-dot.station { border-color: var(--accent-cyan); background: rgba(0,212,255,0.3); }
+    .legend-dot.ship { border-color: var(--accent-green); background: rgba(0,255,136,0.3); }
+    .legend-dot.hostile { border-color: var(--accent-red); background: rgba(255,68,68,0.3); }
+    .legend-label { color: var(--text-dim); }
+    
+    /* Location Cards (below map) */
     .region-header {
       font-family: var(--font-display);
       font-size: 1rem;
@@ -57,9 +277,6 @@
     .location-card.hostile {
       border-left-color: var(--accent-red);
     }
-    .location-card.unknown {
-      border-left-color: var(--accent-orange);
-    }
     .location-header {
       display: flex;
       justify-content: space-between;
@@ -77,20 +294,9 @@
       font-size: 0.65rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
-    .location-status.docked {
-      background: var(--accent-green);
-      color: var(--bg-dark);
-    }
-    .location-status.target {
-      background: var(--accent-orange);
-      color: var(--bg-dark);
-    }
-    .location-status.hostile {
-      background: var(--accent-red);
-      color: var(--bg-dark);
-    }
+    .location-status.docked { background: var(--accent-green); color: var(--bg-dark); }
+    .location-status.target { background: var(--accent-orange); color: var(--bg-dark); }
     .location-type {
       font-size: 0.75rem;
       color: var(--text-dim);
@@ -122,24 +328,15 @@
     .location-detail-value {
       color: var(--text-primary);
     }
-    .poi-list {
-      margin-top: 12px;
-    }
+    .poi-list { margin-top: 12px; }
     .poi-item {
       padding: 6px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       font-size: 0.85rem;
     }
-    .poi-item:last-child {
-      border-bottom: none;
-    }
-    .poi-name {
-      color: var(--accent-cyan);
-    }
-    .poi-desc {
-      color: var(--text-dim);
-      margin-left: 8px;
-    }
+    .poi-item:last-child { border-bottom: none; }
+    .poi-name { color: var(--accent-cyan); }
+    .poi-desc { color: var(--text-dim); margin-left: 8px; }
     .threat-warning {
       background: rgba(255, 68, 68, 0.1);
       border: 1px solid var(--accent-red);
@@ -153,9 +350,7 @@
       margin-bottom: 4px;
       font-size: 0.8rem;
     }
-    .threat-warning p {
-      color: var(--text-dim);
-    }
+    .threat-warning p { color: var(--text-dim); }
   </style>
 </head>
 <body>
@@ -171,21 +366,107 @@
       </div>
       <nav class="nav-links">
         <a href="index.html">Crew</a>
+        <a href="terminals/bridge.html">Bridge</a>
         <a href="npcs.html">Contacts</a>
         <a href="missions.html">Missions</a>
         <a href="galaxy.html" class="active">Galaxy</a>
       </nav>
     </header>
 
-    <!-- The Free Margins -->
+    <!-- Interactive Galaxy Map -->
     <section class="panel">
-      <div class="panel-header">The Free Margins</div>
+      <div class="panel-header">Sector Map — Free Margins</div>
       <div class="panel-content">
-        <p class="text-dim mb-3" style="font-size: 0.9rem; line-height: 1.5;">
-          The outer systems. Lawless, dangerous, full of opportunity. Where the Combine's reach ends and the Sovereignty's authority is a polite fiction. This is where the Leviathan operates. This is where fortunes are made and crews disappear.
-        </p>
-        
+        <div class="galaxy-map" id="galaxy-map">
+          <div class="map-grid"></div>
+          
+          <!-- Station Nowhere (Home) -->
+          <div class="map-location" style="left: 25%; top: 45%;">
+            <div class="location-marker station"></div>
+            <div class="location-label">Station Nowhere</div>
+            <div class="location-tooltip">
+              <div class="tooltip-name">Station Nowhere</div>
+              <div class="tooltip-type">Independent Station · Home Port</div>
+              <div class="tooltip-desc">Sprawling station at the intersection of five smuggling routes. 60,000 souls. Zero jurisdiction.</div>
+              <div class="tooltip-status friendly">⬤ DOCKED — Leviathan</div>
+            </div>
+          </div>
+          
+          <!-- Leviathan (at Station Nowhere) -->
+          <div class="map-location" style="left: 27%; top: 42%;">
+            <div class="location-marker ship"></div>
+            <div class="location-tooltip">
+              <div class="tooltip-name">LVN-0017 Leviathan</div>
+              <div class="tooltip-type">Ouroboros-class Salvage Vessel</div>
+              <div class="tooltip-desc">Home. Held together by duct tape, spite, and VEGA.</div>
+              <div class="tooltip-status friendly">⬤ All Systems Nominal</div>
+            </div>
+          </div>
+          
+          <!-- MSV Carrion Star (Mission Target) -->
+          <div class="map-location" style="left: 65%; top: 35%;">
+            <div class="location-marker hostile"></div>
+            <div class="location-label">MSV Carrion Star</div>
+            <div class="location-tooltip">
+              <div class="tooltip-name">MSV Carrion Star</div>
+              <div class="tooltip-type">Meridian-class Freighter · DERELICT</div>
+              <div class="tooltip-desc">Dropped out of fold 72hrs ago. Life signs present. No response to hails.</div>
+              <div class="tooltip-status hostile">⚠ MISSION TARGET — Anomalous readings</div>
+            </div>
+          </div>
+          
+          <!-- Combine Territory Marker -->
+          <div class="map-location" style="left: 85%; top: 70%;">
+            <div class="location-marker territory"></div>
+            <div class="location-label" style="color: var(--accent-orange);">→ Core Systems</div>
+            <div class="location-tooltip">
+              <div class="tooltip-name">Combine Territory</div>
+              <div class="tooltip-type">Corporate Space · Restricted</div>
+              <div class="tooltip-desc">Core systems. Combine jurisdiction. The Leviathan doesn't go there. Too many questions.</div>
+              <div class="tooltip-status neutral">⬤ No Active Warrants (probably)</div>
+            </div>
+          </div>
+          
+          <!-- Sovereignty Space Marker -->
+          <div class="map-location" style="left: 10%; top: 75%;">
+            <div class="location-marker territory"></div>
+            <div class="location-label" style="color: var(--accent-orange);">← Sovereignty</div>
+            <div class="location-tooltip">
+              <div class="tooltip-name">Sovereignty Space</div>
+              <div class="tooltip-type">Government Territory</div>
+              <div class="tooltip-desc">Old colonial governments. Laws exist there. Bureaucracy. Inspector Nakamura's jurisdiction.</div>
+              <div class="tooltip-status neutral">⬤ Legal Status: Complicated</div>
+            </div>
+          </div>
+          
+          <!-- Travel Route (dotted line between Station Nowhere and Carrion Star) -->
+          <div class="travel-line dashed" style="left: 28%; top: 43%; width: 200px; transform: rotate(-15deg);"></div>
+          
+          <!-- Legend -->
+          <div class="map-legend">
+            <div class="legend-item">
+              <div class="legend-dot station"></div>
+              <span class="legend-label">Station</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot ship"></div>
+              <span class="legend-label">Leviathan</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot hostile"></div>
+              <span class="legend-label">Hostile/Unknown</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Free Margins Locations -->
+    <section class="panel">
+      <div class="panel-header">Known Locations</div>
+      <div class="panel-content">
         <div class="known-locations">
+          
           <!-- Station Nowhere -->
           <div class="location-card current">
             <div class="location-header">
@@ -221,13 +502,13 @@
               </div>
               <div class="poi-item">
                 <span class="poi-name">The Tangle</span>
-                <span class="poi-desc">— Lower decks. Easy to get lost. Easier to disappear.</span>
+                <span class="poi-desc">— Lower decks. Easy to get lost.</span>
               </div>
             </div>
           </div>
 
           <!-- MSV Carrion Star -->
-          <div class="location-card unknown">
+          <div class="location-card hostile">
             <div class="location-header">
               <div class="location-name">MSV Carrion Star</div>
               <span class="location-status target">Mission Target</span>
@@ -247,7 +528,7 @@
               </div>
               <div class="location-detail">
                 <span class="location-detail-label">Power</span>
-                <span class="location-detail-value">Minimal — emergency systems only</span>
+                <span class="location-detail-value">Minimal — emergency only</span>
               </div>
             </div>
             <div class="threat-warning">
@@ -284,7 +565,7 @@
       </div>
     </section>
 
-    <!-- Faction Territories -->
+    <!-- Major Powers -->
     <section class="panel">
       <div class="panel-header">Major Powers</div>
       <div class="panel-content">
@@ -293,28 +574,28 @@
             <div class="location-name">The Combine</div>
             <div class="location-type">Corporate Mega-State · Core Systems</div>
             <div class="location-desc">
-              Owns most of core space. Not evil per se — just profit-driven to the point where 'evil' is a rounding error. They build everything, own everything, and charge interest on everything else.
+              Owns most of core space. Not evil per se — just profit-driven to the point where 'evil' is a rounding error.
             </div>
           </div>
           <div class="location-card">
             <div class="location-name">The Sovereignty</div>
             <div class="location-type">Government · Old Colonies</div>
             <div class="location-desc">
-              What remains of Earth's original colonial governments. They have laws, courts, and a navy. They also have corruption, bureaucracy, and a losing war against irrelevance.
+              What remains of Earth's colonial governments. They have laws, courts, and a losing war against irrelevance.
             </div>
           </div>
           <div class="location-card">
             <div class="location-name">The Syndicates</div>
             <div class="location-type">Criminal Networks · Everywhere</div>
             <div class="location-desc">
-              Organized crime that's often more organized than the governments. They run the black markets, the smuggling lanes, and the jobs that pay well because legitimate contractors won't touch them.
+              Organized crime that's often more organized than the governments. They run the black markets and the jobs that pay well.
             </div>
           </div>
           <div class="location-card">
             <div class="location-name">Church of the Architects</div>
             <div class="location-type">Religious Organization · Scattered</div>
             <div class="location-desc">
-              Believes alien precursors left technology and messages across the galaxy. They might be right. They're definitely insufferable about it. Part archaeologists, part cultists, part treasure hunters.
+              Believes alien precursors left technology across the galaxy. Part archaeologists, part cultists, part treasure hunters.
             </div>
           </div>
         </div>
